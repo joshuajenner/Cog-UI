@@ -10,12 +10,20 @@ const number_slider : Array[String] = [
 	"res://addons/cogui/nodes/number_slider.gd", 
 	"res://addons/cogui/nodes/control.svg"
 ]
+const input_map_button : Array[String] = [
+	"InputMapButton", 
+	"Button", 
+	"res://addons/cogui/nodes/input_map_button.gd", 
+	"res://addons/cogui/nodes/control.svg"
+]
 
 
 
 func _enter_tree():
 	add_custom_type(number_slider[custom_name], number_slider[parent_type], preload(number_slider[script_path]), preload(number_slider[icon_path]))
+	add_custom_type(input_map_button[custom_name], input_map_button[parent_type], preload(input_map_button[script_path]), preload(input_map_button[icon_path]))
 
 
 func _exit_tree():
 	remove_custom_type(number_slider[custom_name])
+	remove_custom_type(input_map_button[custom_name])

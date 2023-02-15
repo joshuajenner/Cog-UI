@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ctnjhmmd0traf"]
+[gd_scene load_steps=2 format=3 uid="uid://ctnjhmmd0traf"]
+
+[ext_resource type="Script" path="res://addons/cogui/nodes/input_map_button.gd" id="1_il0q8"]
 
 [node name="input_settings" type="Control"]
 layout_mode = 3
@@ -56,11 +58,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Move Up"
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer"]
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Space"
+script = ExtResource("1_il0q8")
+action = "move_right"
 
 [node name="BoxContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
 layout_mode = 2
@@ -74,3 +77,10 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Move Left
 "
+
+[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+script = ExtResource("1_il0q8")
+action = "move_left"
