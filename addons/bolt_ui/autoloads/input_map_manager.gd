@@ -2,45 +2,33 @@ extends Node
 
 const INPUT_FILE_PATH : String = "user://user_input_map.tres"
 
-var input_keys = {}
-
 
 func _ready():
-	load_user_input_map()
-	print("Job's Done")
+	load_resource_file()
 
 
-func load_user_input_map():
+func load_resource_file() -> void:
 	var file_exists : bool = ResourceLoader.exists(INPUT_FILE_PATH)
+	
 	if file_exists:
-		# load from file to input map
-		pass
+		var file : InputMapResource = ResourceLoader.load(INPUT_FILE_PATH)
+		load_resource_to_settings(file)
 	else:
-		pass
+		save_settings_to_resource()
 
 
-func create_user_input_map():
+func load_resource_to_settings(file : InputMapResource) -> void:
+	var actions_map : Array[StringName] = InputMap.get_actions()
+	var file_input_map : Dictionary = file.input_map
+	
+	for action in actions_map:
+		InputMap.action_erase_events(action)
+		
+		for key in file_input_map[action]:
+			InputMap.action_add_event(action, key)
+
+
+func save_settings_to_resource() -> void:
 	var input_resource = InputMapResource.new()
-	input_resource.init_input_map()
+	input_resource.load_input_map()
 	ResourceSaver.save(input_resource, INPUT_FILE_PATH)
-
-
-
-
-
-
-#func _ready():
-#	save("[[\"yuh\"], [\"nuh\"]]")
-#	read_file()
-#
-#
-#func save(content):
-#	var file = FileAccess.open("user://user_input_map.json", FileAccess.WRITE)
-#	file.store_string(content)
-#	file = null
-#
-#
-#func read_file():
-#	var file = FileAccess.open("user://user_input_map.json", FileAccess.READ)
-#	var content = JSON.parse_string(file.get_as_text())
-#	print("JSON: ", content) 

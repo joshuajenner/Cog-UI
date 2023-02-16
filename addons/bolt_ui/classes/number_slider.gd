@@ -1,4 +1,4 @@
-@icon("res://addons/cogui/classes/control.svg")
+@icon("res://addons/bolt_ui/classes/control.svg")
 extends HSplitContainer
 class_name NumberSlider8
 

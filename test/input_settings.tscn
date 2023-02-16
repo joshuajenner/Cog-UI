@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://df7safim4sxl7"]
 
 [ext_resource type="Script" path="res://addons/bolt_ui/classes/input_map_button.gd" id="1_suboj"]
 
@@ -59,6 +59,7 @@ size_flags_horizontal = 0
 text = "Move Up"
 
 [node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 script = ExtResource("1_suboj")
@@ -78,6 +79,7 @@ text = "Move Left
 "
 
 [node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 script = ExtResource("1_suboj")

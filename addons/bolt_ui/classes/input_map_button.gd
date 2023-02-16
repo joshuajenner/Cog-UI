@@ -38,6 +38,7 @@ func _input(event):
 			var key_code = event.as_text_keycode()
 			assign_key_to_action(event)
 			text = key_code
+			release_focus()
 
 
 func assign_key_to_action(event: InputEvent):
@@ -54,3 +55,5 @@ func assign_key_to_action(event: InputEvent):
 				InputMap.action_add_event(action, event)
 		print(InputMap.action_get_events(action))
 		print("done2")
+		
+	waiting_for_assign = false
