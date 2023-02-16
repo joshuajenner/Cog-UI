@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmlg8fh5rttfo"]
+[gd_scene load_steps=2 format=3 uid="uid://c8inxomue7yrl"]
 
-[ext_resource type="Script" path="res://addons/cogui/classes/number_slider.gd" id="1_6kbo3"]
+[ext_resource type="Script" path="res://addons/bolt_ui/classes/number_slider.gd" id="1_x6ahf"]
 
 [node name="NumberSlider" type="HSplitContainer"]
 anchors_preset = 15
@@ -8,7 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6kbo3")
+script = ExtResource("1_x6ahf")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctnjhmmd0traf"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/cogui/classes/input_map_button.gd" id="1_suboj"]
+[ext_resource type="Script" path="res://addons/bolt_ui/classes/input_map_button.gd" id="1_suboj"]
 
 [node name="input_settings" type="Control"]
 layout_mode = 3

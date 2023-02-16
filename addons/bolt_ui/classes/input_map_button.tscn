@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://deeqlf351oghy"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/cogui/classes/input_map_button.gd" id="1_fddf4"]
+[ext_resource type="Script" path="res://addons/bolt_ui/classes/input_map_button.gd" id="1_fddf4"]
 
 [node name="InputMapButton" type="Button"]
 anchors_preset = 15

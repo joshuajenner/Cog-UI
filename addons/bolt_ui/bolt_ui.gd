@@ -7,14 +7,14 @@ enum {custom_name, parent_type, script_path, icon_path}
 const number_slider : Array[String] = [
 	"NumberSlider_N", 
 	"BoxContainer", 
-	"res://addons/cogui/nodes/number_slider.gd", 
-	"res://addons/cogui/nodes/control.svg"
+	"res://addons/bolt_ui/nodes/number_slider.gd", 
+	"res://addons/bolt_ui/nodes/control.svg"
 ]
 const input_map_button : Array[String] = [
 	"InputMapButton_N", 
 	"Button", 
-	"res://addons/cogui/nodes/input_map_button.gd", 
-	"res://addons/cogui/nodes/control.svg"
+	"res://addons/bolt_ui/nodes/input_map_button.gd", 
+	"res://addons/bolt_ui/nodes/control.svg"
 ]
 
 

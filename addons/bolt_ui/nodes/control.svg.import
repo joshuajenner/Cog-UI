@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bccnp7s4ppjvw"
-path="res://.godot/imported/control.svg-b72b75fae53a59e0e460513ce66ed6de.ctex"
+uid="uid://d46j64jthpq3"
+path="res://.godot/imported/control.svg-f36ac3ee10c58219c8afcba88efa384d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/cogui/classes/control.svg"
-dest_files=["res://.godot/imported/control.svg-b72b75fae53a59e0e460513ce66ed6de.ctex"]
+source_file="res://addons/bolt_ui/nodes/control.svg"
+dest_files=["res://.godot/imported/control.svg-f36ac3ee10c58219c8afcba88efa384d.ctex"]
 
 [params]
 

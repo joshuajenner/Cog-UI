@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://beessyy4glhom"]
+[gd_scene load_steps=2 format=3 uid="uid://cc4n3800d72en"]
 
-[ext_resource type="Script" path="res://addons/cogui/nodes/number_slider.gd" id="1_11nob"]
+[ext_resource type="Script" path="res://addons/bolt_ui/nodes/number_slider.gd" id="1_ir2b8"]
 
 [node name="test_menu" type="Control"]
 layout_mode = 3
@@ -14,4 +14,4 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_11nob")
+script = ExtResource("1_ir2b8")
