@@ -84,5 +84,3 @@ layout_mode = 2
 size_flags_horizontal = 8
 script = ExtResource("1_suboj")
 action = "move_left"
-
-[connection signal="button_down" from="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/InputMapButton2" to="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/InputMapButton2" method="_on_button_down"]

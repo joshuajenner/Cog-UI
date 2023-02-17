@@ -12,15 +12,20 @@ var waiting_for_assign : bool = false
 
 
 func _ready():
-	disabled = true
-	get_inputs_from_action()
+	if InputMap.has_action(action):
+		connect_signals()
+		get_inputs_from_action()
+	else:
+		disabled = true
+
+
+func connect_signals():
+	button_down.connect(_on_button_down)
 
 
 func get_inputs_from_action():
-	var keys
-	if action != null and action != "":
-		keys = InputMap.action_get_events(action)
-	if keys != null:
+	var keys = InputMap.action_get_events(action)
+	if keys.size() >= 1:
 		key_label = keys[key_index].as_text_keycode()
 		disabled = false
 	
