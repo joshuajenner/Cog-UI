@@ -50,7 +50,6 @@ func assign_key_to_action(event: InputEvent):
 	var assigned_keys = InputMap.action_get_events(action)
 	if assigned_keys.size() <= key_index:
 		InputMap.action_add_event(action, event)
-		print("done1")
 	else:
 		InputMap.action_erase_events(action)
 		for key in range(0, assigned_keys.size()-1):
@@ -58,7 +57,5 @@ func assign_key_to_action(event: InputEvent):
 				InputMap.action_add_event(action, assigned_keys[key])
 			else:
 				InputMap.action_add_event(action, event)
-		print(InputMap.action_get_events(action))
-		print("done2")
 		
 	waiting_for_assign = false

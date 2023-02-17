@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://df7safim4sxl7"]
+[gd_scene load_steps=3 format=3 uid="uid://df7safim4sxl7"]
 
 [ext_resource type="Script" path="res://addons/bolt_ui/classes/input_map_button.gd" id="1_suboj"]
+[ext_resource type="Script" path="res://test/input_settings.gd" id="1_xgp2v"]
 
 [node name="input_settings" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xgp2v")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -62,6 +64,7 @@ text = "Move Up"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+text = "move_up"
 script = ExtResource("1_suboj")
 action = "move_up"
 
@@ -82,5 +85,95 @@ text = "Move Left
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+text = "move_left"
 script = ExtResource("1_suboj")
 action = "move_left"
+
+[node name="BoxContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Move Down"
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_down"
+script = ExtResource("1_suboj")
+action = "move_down"
+
+[node name="BoxContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Move Right
+"
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_right"
+script = ExtResource("1_suboj")
+action = "move_right"
+
+[node name="BoxContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Jump"
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_left"
+script = ExtResource("1_suboj")
+action = "jump"
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 10
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save
+"
+
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/Save" to="." method="_on_save_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer/Cancel" to="." method="_on_cancel_button_down"]
