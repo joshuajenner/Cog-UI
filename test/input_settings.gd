@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_save_button_down():
-	InputMapManager.save_settings_to_resource()
+	InputMapManager.save_input_map_to_resource()
 
 
 func _on_cancel_button_down():
