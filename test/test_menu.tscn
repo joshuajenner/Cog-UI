@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4n3800d72en"]
-
-[ext_resource type="Script" path="res://addons/bolt_ui/nodes/number_slider.gd" id="1_ir2b8"]
+[gd_scene format=3 uid="uid://cc4n3800d72en"]
 
 [node name="test_menu" type="Control"]
 layout_mode = 3
@@ -9,9 +7,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="NumberSlider" type="BoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_ir2b8")
