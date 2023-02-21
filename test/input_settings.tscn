@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://drjftrcffmhik"]
 
 [ext_resource type="Script" path="res://test/input_settings.gd" id="1_xgp2v"]
-[ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button.gd" id="2_gy8iy"]
+[ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/input_map_button.gd" id="2_wuwwd"]
 
 [node name="input_settings" type="Control"]
 layout_mode = 3
@@ -65,7 +65,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_up"
-script = ExtResource("2_gy8iy")
+script = ExtResource("2_wuwwd")
 action = "move_up"
 
 [node name="BoxContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
@@ -86,7 +86,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_left"
-script = ExtResource("2_gy8iy")
+script = ExtResource("2_wuwwd")
 action = "move_left"
 
 [node name="BoxContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
@@ -106,7 +106,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_down"
-script = ExtResource("2_gy8iy")
+script = ExtResource("2_wuwwd")
 action = "move_down"
 
 [node name="BoxContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
@@ -127,7 +127,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_right"
-script = ExtResource("2_gy8iy")
+script = ExtResource("2_wuwwd")
 action = "move_right"
 
 [node name="BoxContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
@@ -147,7 +147,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_left"
-script = ExtResource("2_gy8iy")
+script = ExtResource("2_wuwwd")
 action = "jump"
 
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer"]

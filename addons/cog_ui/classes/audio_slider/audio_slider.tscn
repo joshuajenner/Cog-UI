@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddxrwlqiwcls1"]
+
+[ext_resource type="Script" path="res://addons/cog_ui/classes/audio_slider/audio_slider.gd" id="1_bmk6i"]
+
+[node name="AudioSlider" type="HSlider" node_paths=PackedStringArray("label")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_bmk6i")
+label = NodePath("")
+
+[connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

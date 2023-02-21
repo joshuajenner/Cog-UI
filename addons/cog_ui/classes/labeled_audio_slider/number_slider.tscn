@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/cog_ui/classes/number_slider.gd" id="1_x6ahf"]
+[ext_resource type="Script" path="res://addons/cog_ui/classes/audio_slider/audio_slider.gd" id="1_x6ahf"]
 
 [node name="NumberSlider" type="HSplitContainer"]
 anchors_preset = 15
