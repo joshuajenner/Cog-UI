@@ -13,14 +13,9 @@ var waiting_for_assign : bool = false
 
 func _ready():
 	if InputMap.has_action(action):
-		connect_signals()
 		get_inputs_from_action()
 	else:
 		disabled = true
-
-
-func connect_signals():
-	button_down.connect(_on_button_down)
 
 
 func get_inputs_from_action():
@@ -30,12 +25,6 @@ func get_inputs_from_action():
 		disabled = false
 	
 	text = key_label
-
-
-func _on_button_down():
-	text = INPUT_REQUEST
-	waiting_for_assign = true
-
 
 func _input(event):
 	if waiting_for_assign:
@@ -59,3 +48,8 @@ func assign_key_to_action(event: InputEvent):
 				InputMap.action_add_event(action, event)
 		
 	waiting_for_assign = false
+
+
+func _on_pressed():
+	text = INPUT_REQUEST
+	waiting_for_assign = true
