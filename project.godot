@@ -20,7 +20,7 @@ InputMapManager="*res://addons/cog_ui/autoloads/input_map_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/cog_ui/plugin.cfg")
 
 [input]
 

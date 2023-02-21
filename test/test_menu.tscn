@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cc4n3800d72en"]
+[gd_scene load_steps=2 format=3 uid="uid://cc4n3800d72en"]
+
+[ext_resource type="Script" path="res://addons/cog_ui/classes/audio_slider/audio_slider.gd" id="1_ju81p"]
 
 [node name="test_menu" type="Control"]
 layout_mode = 3
@@ -7,3 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 16.0
+value = 1.0
+script = ExtResource("1_ju81p")
+audio_bus = "Master"

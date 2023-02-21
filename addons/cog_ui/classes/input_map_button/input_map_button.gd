@@ -1,5 +1,5 @@
-extends Button
 class_name InputMapButton
+extends Button
 
 
 @export var action : String

@@ -1,23 +1,43 @@
-@icon("res://addons/bolt_ui/classes/control.svg")
+@tool
 class_name AudioSlider
 extends HSlider
 
-@export var audio_bus : String
-@export var label : Control
+@export var audio_bus : String :
+	set = _on_audio_bus_changed
 
-var bus_index : int
+var bus_index : int = 0
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	bus_index = AudioServer.get_bus_index(audio_bus)
+	
+	if bus_index == -1:
+		update_configuration_warnings()
+	else:
+		get_volume_from_bus()
 
 
+func _on_audio_bus_changed(value):
+	audio_bus = value
+	bus_index = AudioServer.get_bus_index(audio_bus)
+	update_configuration_warnings()
 
 
-func _on_drag_ended(value_changed):
-	pass # Replace with function body.
+func get_volume_from_bus():
+	var volume : float = AudioServer.get_bus_volume_db(bus_index)
+	value = db_to_linear(volume)
 
 
-func _on_value_changed(value):
-	pass # Replace with function body.
+func _on_drag_ended(value_changed) -> void:
+	var new_volume : float = linear_to_db(value)
+	AudioServer.set_bus_volume_db(bus_index, new_volume)
+
+
+func _get_configuration_warnings():
+	if audio_bus == "":
+		return PackedStringArray(["An Audio Bus must be defined."])
+	elif bus_index == -1:
+		return PackedStringArray(["The Audio Bus was not found."])
+	else:
+		return PackedStringArray()
+	
