@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4n3800d72en"]
+[gd_scene load_steps=2 format=3 uid="uid://cx5ot16uim2f6"]
 
-[ext_resource type="Script" path="res://addons/cog_ui/classes/audio_slider/audio_slider.gd" id="1_ju81p"]
+[ext_resource type="Script" path="res://addons/cog_ui/classes/volume_slider/volume_slider.gd" id="1_jajaf"]
 
 [node name="test_menu" type="Control"]
 layout_mode = 3
@@ -11,9 +11,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AudioSlider" type="HSlider" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 16.0
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -8.0
+offset_right = 250.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 value = 1.0
-script = ExtResource("1_ju81p")
+script = ExtResource("1_jajaf")
 audio_bus = "Master"
+
+[connection signal="drag_ended" from="AudioSlider" to="AudioSlider" method="_on_drag_ended"]
