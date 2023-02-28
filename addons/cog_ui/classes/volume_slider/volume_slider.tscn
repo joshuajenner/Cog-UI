@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/cog_ui/classes/volume_slider/volume_slider.gd" id="1_ns7dr"]
 
-[node name="AudioSlider" type="HSlider"]
+[node name="VolumeSlider" type="HSlider"]
 custom_minimum_size = Vector2(500, 0)
 anchors_preset = 8
 anchor_left = 0.5
