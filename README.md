@@ -13,8 +13,8 @@ A library of custom nodes and scripts that makes creating UI for games easier in
 
 
 ## Documentation
-- Nodes
-- Autoloads
+- [Nodes](https://github.com/joshuajenner/Cog-UI/wiki/Nodes)
+- [Autoloads](https://github.com/joshuajenner/Cog-UI/wiki/Autoloads)
 - Resources
 
 
