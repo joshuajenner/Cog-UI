@@ -18,10 +18,11 @@ func load_resource_to_input_map() -> void:
 	var game_map : Array[StringName] = InputMap.get_actions()
 	
 	for action in game_map:
-		InputMap.action_erase_events(action)
+		if (user_map.has(action)):
+			InputMap.action_erase_events(action)
 		
-		for event in user_map[action]:
-			InputMap.action_add_event(action, event)
+			for event in user_map[action]:
+				InputMap.action_add_event(action, event)
 
 
 func save_input_map_to_resource() -> void:
