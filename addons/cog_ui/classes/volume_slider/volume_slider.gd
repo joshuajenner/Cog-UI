@@ -2,7 +2,6 @@
 class_name VolumeSlider
 extends HSlider
 
-
 @export var audio_bus : String :
 	set = _on_audio_bus_changed
 
@@ -15,7 +14,7 @@ func _ready() -> void:
 		get_volume_from_bus()
 
 
-func get_volume_from_bus():
+func get_volume_from_bus() -> void:
 	var volume : float = AudioServer.get_bus_volume_db(bus_index)
 	value = db_to_linear(volume)
 
@@ -25,13 +24,13 @@ func _on_drag_ended(value_changed) -> void:
 	AudioServer.set_bus_volume_db(bus_index, new_volume)
 
 
-func _on_audio_bus_changed(value):
+func _on_audio_bus_changed(value) -> void:
 	audio_bus = value
 	bus_index = AudioServer.get_bus_index(audio_bus)
 	update_configuration_warnings()
 
 
-func _get_configuration_warnings():
+func _get_configuration_warnings() -> PackedStringArray:
 	if bus_index == -1:
 		return PackedStringArray(["The Audio Bus was not found."])
 	else:
