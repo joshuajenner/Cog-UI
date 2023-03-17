@@ -20,7 +20,7 @@ func load_resource_to_input_map() -> void:
 	for action in game_map:
 		if (user_map.has(action)):
 			InputMap.action_erase_events(action)
-		
+			
 			for event in user_map[action]:
 				InputMap.action_add_event(action, event)
 
