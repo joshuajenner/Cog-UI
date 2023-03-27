@@ -60,13 +60,36 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Move Up"
 
-[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_up"
 script = ExtResource("2_wuwwd")
 action = "move_up"
+
+[node name="InputMapButton3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_up"
+script = ExtResource("2_wuwwd")
+action = "move_up"
+event_index = 1
+
+[node name="InputMapButton4" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_up"
+script = ExtResource("2_wuwwd")
+action = "move_up"
+event_index = 2
 
 [node name="BoxContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
 layout_mode = 2
@@ -81,13 +104,36 @@ size_flags_horizontal = 0
 text = "Move Left
 "
 
-[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_left"
 script = ExtResource("2_wuwwd")
 action = "move_left"
+
+[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_left"
+script = ExtResource("2_wuwwd")
+action = "move_left"
+event_index = 1
+
+[node name="InputMapButton3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_left"
+script = ExtResource("2_wuwwd")
+action = "move_left"
+event_index = 2
 
 [node name="BoxContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
 layout_mode = 2
@@ -101,13 +147,36 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Move Down"
 
-[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_down"
 script = ExtResource("2_wuwwd")
 action = "move_down"
+
+[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_down"
+script = ExtResource("2_wuwwd")
+action = "move_down"
+event_index = 1
+
+[node name="InputMapButton3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_down"
+script = ExtResource("2_wuwwd")
+action = "move_down"
+event_index = 2
 
 [node name="BoxContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
 layout_mode = 2
@@ -122,13 +191,36 @@ size_flags_horizontal = 0
 text = "Move Right
 "
 
-[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4"]
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4/BoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_right"
 script = ExtResource("2_wuwwd")
 action = "move_right"
+
+[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4/BoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_right"
+script = ExtResource("2_wuwwd")
+action = "move_right"
+event_index = 1
+
+[node name="InputMapButton3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer4/BoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "move_right"
+script = ExtResource("2_wuwwd")
+action = "move_right"
+event_index = 2
 
 [node name="BoxContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
 layout_mode = 2
@@ -142,13 +234,36 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Jump"
 
-[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5"]
+[node name="BoxContainer2" type="BoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5/BoxContainer2"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "move_left"
+text = "jump"
 script = ExtResource("2_wuwwd")
 action = "jump"
+
+[node name="InputMapButton2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5/BoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "jump"
+script = ExtResource("2_wuwwd")
+action = "jump"
+event_index = 1
+
+[node name="InputMapButton3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer5/BoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "jump"
+script = ExtResource("2_wuwwd")
+action = "jump"
+event_index = 2
 
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
