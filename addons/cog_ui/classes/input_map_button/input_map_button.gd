@@ -19,9 +19,12 @@ func _ready():
 
 
 func get_events_from_action():
-	var events = InputMap.action_get_events(action)
+	var events : Array[InputEvent] = InputMap.action_get_events(action)
 	if events.size() > event_index:
-		event_label = events[event_index].as_text_keycode()
+		if events[event_index].keycode == 0:
+			event_label = events[event_index].as_text_physical_keycode()
+		else:
+			event_label = events[event_index].as_text_keycode()
 		disabled = false
 	elif events.size() < event_index:
 		disabled = true
