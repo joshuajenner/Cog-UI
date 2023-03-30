@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EventKeyLabels" load_steps=2 format=3 uid="uid://cm7ahrpnybox1"]
+
+[ext_resource type="Script" path="res://addons/cog_ui/resources/event_key_labels.gd" id="1_evpwk"]
+
+[resource]
+script = ExtResource("1_evpwk")

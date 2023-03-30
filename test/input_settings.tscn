@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drjftrcffmhik"]
+[gd_scene load_steps=4 format=3 uid="uid://drjftrcffmhik"]
 
 [ext_resource type="Script" path="res://test/input_settings.gd" id="1_xgp2v"]
 [ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/input_map_button.gd" id="2_wuwwd"]
+[ext_resource type="Resource" uid="uid://cm7ahrpnybox1" path="res://addons/cog_ui/resources/event_key_labels.tres" id="3_wf3tr"]
 
 [node name="input_settings" type="Control"]
 layout_mode = 3
@@ -72,6 +73,7 @@ size_flags_horizontal = 8
 text = "move_up"
 script = ExtResource("2_wuwwd")
 action = "move_up"
+custom_keys = ExtResource("3_wf3tr")
 
 [node name="InputMapButton3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
@@ -81,6 +83,7 @@ text = "move_up"
 script = ExtResource("2_wuwwd")
 action = "move_up"
 event_index = 1
+custom_keys = ExtResource("3_wf3tr")
 
 [node name="InputMapButton4" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
@@ -90,6 +93,7 @@ text = "move_up"
 script = ExtResource("2_wuwwd")
 action = "move_up"
 event_index = 2
+custom_keys = ExtResource("3_wf3tr")
 
 [node name="BoxContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox"]
 layout_mode = 2
