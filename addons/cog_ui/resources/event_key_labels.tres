@@ -1,6 +1,23 @@
-[gd_resource type="Resource" script_class="EventKeyLabels" load_steps=2 format=3 uid="uid://cm7ahrpnybox1"]
+[gd_resource type="Resource" script_class="EventKeyLabels" load_steps=6 format=3 uid="uid://cm2102d11g8vp"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/resources/event_key_labels.gd" id="1_evpwk"]
+[ext_resource type="Script" path="res://addons/cog_ui/resources/key_label.gd" id="1_ntg0y"]
+
+[sub_resource type="Resource" id="Resource_74src"]
+script = ExtResource("1_ntg0y")
+key = 4194325
+label = "W"
+
+[sub_resource type="Resource" id="Resource_x2pyq"]
+script = ExtResource("1_ntg0y")
+key = 4194320
+label = "Up"
+
+[sub_resource type="Resource" id="Resource_ee8d0"]
+script = ExtResource("1_ntg0y")
+key = 0
+label = ""
 
 [resource]
 script = ExtResource("1_evpwk")
+labels = Array[ExtResource("1_ntg0y")]([SubResource("Resource_74src"), SubResource("Resource_x2pyq"), SubResource("Resource_ee8d0")])

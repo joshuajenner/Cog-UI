@@ -1,7 +1,4 @@
 class_name EventKeyLabels
 extends Resource
 
-
-var labels : Dictionary = {
-	KEY_D : "Dee"
-}
+@export var labels : Array[KeyLabel]
