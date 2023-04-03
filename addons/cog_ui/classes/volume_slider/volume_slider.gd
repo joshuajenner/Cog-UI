@@ -9,14 +9,20 @@ var bus_index : int = 0
 
 
 func _ready() -> void:
+	setup_slider()
 	bus_index = AudioServer.get_bus_index(audio_bus)
 	if bus_index != -1:
 		get_volume_from_bus()
+
+func setup_slider() -> void:
+	max_value = 1
+	step = 0.01
 
 
 func get_volume_from_bus() -> void:
 	var volume : float = AudioServer.get_bus_volume_db(bus_index)
 	value = db_to_linear(volume)
+	print(value)
 
 
 func _on_drag_ended(value_changed) -> void:
