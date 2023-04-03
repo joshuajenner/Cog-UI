@@ -1,0 +1,136 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfwmirr5h7atu"]
+
+[ext_resource type="Script" path="res://addons/cog_ui/classes/volume_slider/volume_slider.gd" id="1_cab26"]
+[ext_resource type="Script" path="res://examples/volume_settings/volume_settings.gd" id="1_w5l1u"]
+
+[node name="AudioSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5l1u")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="TopBar" type="MarginContainer" parent="Margin/VBox"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/VBox/TopBar"]
+layout_mode = 2
+text = "Audio Settings"
+vertical_alignment = 1
+
+[node name="RightAlign" type="HBoxContainer" parent="Margin/VBox/TopBar"]
+layout_mode = 2
+alignment = 2
+
+[node name="Back" type="Button" parent="Margin/VBox/TopBar/RightAlign"]
+layout_mode = 2
+text = "Back"
+
+[node name="MainBlock" type="MarginContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="PanelContainer" parent="Margin/VBox/MainBlock"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/MainBlock/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/MainBlock/Panel/Margin"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Row" type="MarginContainer" parent="Margin/VBox/MainBlock/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row"]
+layout_mode = 2
+text = "Master"
+
+[node name="VolumeSlider" type="HSlider" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+script = ExtResource("1_cab26")
+audio_bus = "Master"
+
+[node name="Row2" type="MarginContainer" parent="Margin/VBox/MainBlock/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row2"]
+layout_mode = 2
+text = "Music
+"
+
+[node name="VolumeSlider" type="HSlider" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+value = 1.0
+script = ExtResource("1_cab26")
+audio_bus = "Master"
+
+[node name="Row3" type="MarginContainer" parent="Margin/VBox/MainBlock/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row3"]
+layout_mode = 2
+text = "SFX
+"
+
+[node name="VolumeSlider" type="HSlider" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+value = 1.0
+script = ExtResource("1_cab26")
+audio_bus = "Master"
+
+[node name="BottomBar" type="MarginContainer" parent="Margin/VBox"]
+layout_mode = 2
+
+[node name="RightAlign" type="HBoxContainer" parent="Margin/VBox/BottomBar"]
+layout_mode = 2
+alignment = 2
+
+[node name="Save" type="Button" parent="Margin/VBox/BottomBar/RightAlign"]
+layout_mode = 2
+text = "Save
+"
+
+[node name="Cancel" type="Button" parent="Margin/VBox/BottomBar/RightAlign"]
+layout_mode = 2
+text = "Cancel
+"
