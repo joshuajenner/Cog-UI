@@ -60,11 +60,11 @@ func assign_event_to_action(new_event: InputEvent):
 
 func set_event_label(event : InputEvent):
 	if custom_keys != null:
-		if custom_keys.labels.has(event.physical_keycode):
-			event_label = custom_keys.labels[event.physical_keycode]
+		if event.physical_keycode != 0:
+			event_label = custom_keys.get_label(event.physical_keycode)
 			return
-		if custom_keys.labels.has(event.keycode):
-			event_label = custom_keys.labels[event.keycode]
+		if event.keycode != 0:
+			event_label = custom_keys.get_label(event.as_text_keycode)
 			return
 		
 	if event.keycode == 0:

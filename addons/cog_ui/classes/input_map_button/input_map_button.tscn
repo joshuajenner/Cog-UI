@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx3ls53fiky5j"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/input_map_button.gd" id="1_0gmay"]
-[ext_resource type="Resource" uid="uid://cm7ahrpnybox1" path="res://addons/cog_ui/resources/event_key_labels.tres" id="2_2wxho"]
+[ext_resource type="Resource" uid="uid://cm2102d11g8vp" path="res://addons/cog_ui/resources/event_key_labels.tres" id="2_2wxho"]
 
 [node name="InputMapButton" type="Button"]
 anchors_preset = 8
