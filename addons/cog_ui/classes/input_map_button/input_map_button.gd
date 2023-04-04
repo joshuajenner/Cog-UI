@@ -61,11 +61,15 @@ func assign_event_to_action(new_event: InputEvent):
 func set_event_label(event : InputEvent):
 	if custom_keys != null:
 		if event.physical_keycode != 0:
-			event_label = custom_keys.get_label(event.physical_keycode)
-			return
+			var new_label : String = custom_keys.get_label(event.physical_keycode)
+			if new_label != "":
+				event_label = new_label
+				return
 		if event.keycode != 0:
-			event_label = custom_keys.get_label(event.as_text_keycode)
-			return
+			var new_label : String = custom_keys.get_label(event.keycode)
+			if new_label != "":
+				event_label = new_label
+				return
 		
 	if event.keycode == 0:
 		event_label = event.as_text_physical_keycode()

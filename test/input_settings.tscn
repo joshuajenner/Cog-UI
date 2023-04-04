@@ -45,6 +45,7 @@ text = "Keybindings"
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
@@ -83,6 +84,7 @@ text = "move_up"
 script = ExtResource("2_wuwwd")
 action = "move_up"
 event_index = 1
+custom_keys = ExtResource("3_wf3tr")
 
 [node name="InputMapButton4" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer2/VBox/BoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
