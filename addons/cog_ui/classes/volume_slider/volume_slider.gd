@@ -48,7 +48,7 @@ func get_volume_from_bus() -> void:
 	value = db_to_linear(volume)
 
 
-func _on_drag_ended(value_changed) -> void:
+func _on_drag_ended(_value_changed) -> void:
 	var new_volume : float = linear_to_db(value)
 	AudioServer.set_bus_volume_db(bus_index, new_volume)
 	AudioBusManager.set_as_unsaved()

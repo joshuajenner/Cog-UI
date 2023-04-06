@@ -4,13 +4,14 @@ signal audio_settings_changed
 signal audio_settings_saved
 signal audio_settings_loaded
 
-const AUDIO_FILE_PATH : String = "user://user_audio_settings.tres"
+const AUDIO_FILE_PATH: String = "user://user_audio_settings.tres"
+const DEFAULT_PATH: String = "res://default_bus_layout.tres"
 
-var has_unsaved_changes : bool = false
+var has_unsaved_changes: bool = false
 
 
 func _ready():
-	var file_exists = ResourceLoader.exists(AUDIO_FILE_PATH)
+	var file_exists: bool = ResourceLoader.exists(AUDIO_FILE_PATH)
 	
 	if file_exists:
 		load_file_to_bus_layout()
@@ -18,22 +19,34 @@ func _ready():
 		save_bus_layout_to_file()
 
 
-func load_file_to_bus_layout():
-	var file_layout = ResourceLoader.load(AUDIO_FILE_PATH)
+func load_default_bus_layout() -> void:
+	_load_bus_layout(DEFAULT_PATH)
+
+
+func load_file_to_bus_layout() -> void:
+	_load_bus_layout(AUDIO_FILE_PATH)
+
+
+func save_bus_layout_to_file() -> void:
+	_save_bus_layout(AUDIO_FILE_PATH)
+
+
+func _save_bus_layout(path: String):
+	var bus_layout: AudioBusLayout = AudioServer.generate_bus_layout()
+	ResourceSaver.save(bus_layout, path)
+
+
+func _load_bus_layout(path: String) -> void:
+	var file_layout: AudioBusLayout = ResourceLoader.load(path)
 	AudioServer.set_bus_layout(file_layout)
 	audio_settings_loaded.emit()
 
 
-func save_bus_layout_to_file():
-	var bus_layout = AudioServer.generate_bus_layout()
-	ResourceSaver.save(bus_layout, AUDIO_FILE_PATH)
-
-
-func set_as_unsaved():
+func set_as_unsaved() -> void:
 	has_unsaved_changes = true
 	audio_settings_changed.emit()
 
 
-func set_as_saved():
+func set_as_saved() -> void:
 	has_unsaved_changes = false
 	audio_settings_saved.emit()
