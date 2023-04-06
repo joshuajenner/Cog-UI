@@ -10,9 +10,12 @@ var bus_index : int = 0
 
 func _ready() -> void:
 	setup_slider()
+	drag_ended.connect(_on_drag_ended)
+	AudioBusManager.audio_settings_loaded.connect(get_volume_from_bus)
 	bus_index = AudioServer.get_bus_index(audio_bus)
 	if bus_index != -1:
 		get_volume_from_bus()
+
 
 func setup_slider() -> void:
 	max_value = 1
@@ -40,16 +43,15 @@ func get_audio_buses() -> Array[String]:
 	return buses
 
 
-
 func get_volume_from_bus() -> void:
 	var volume : float = AudioServer.get_bus_volume_db(bus_index)
 	value = db_to_linear(volume)
-	print(value)
 
 
 func _on_drag_ended(value_changed) -> void:
 	var new_volume : float = linear_to_db(value)
 	AudioServer.set_bus_volume_db(bus_index, new_volume)
+	AudioBusManager.set_as_unsaved()
 
 
 func _on_audio_bus_changed(value) -> void:
