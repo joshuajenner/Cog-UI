@@ -19,6 +19,4 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 script = ExtResource("1_ns7dr")
-audio_bus = ""
-
-[connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
+audio_bus = "Master"

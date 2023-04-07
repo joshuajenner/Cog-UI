@@ -7,6 +7,7 @@ extends Control
 
 
 func _ready():
+	AudioBusManager.connect("audio_settings_saved", disable_buttons)
 	AudioBusManager.connect("audio_settings_changed", enable_buttons)
 	AudioBusManager.connect("audio_settings_loaded", enable_buttons)
 	disable_buttons()
@@ -25,16 +26,13 @@ func enable_buttons():
 func _on_save_pressed():
 	AudioBusManager.save_user_bus_layout()
 	AudioBusManager.set_as_saved()
-	disable_buttons()
 
 
 func _on_cancel_pressed():
 	AudioBusManager.load_user_bus_layout()
 	AudioBusManager.set_as_saved()
-	disable_buttons()
 
 
 func _on_reset_pressed():
 	AudioBusManager.load_default_bus_layout()
 	AudioBusManager.set_as_unsaved()
-	enable_buttons()
