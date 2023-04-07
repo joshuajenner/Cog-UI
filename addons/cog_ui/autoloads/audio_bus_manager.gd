@@ -1,39 +1,37 @@
 extends Node
 
-signal audio_settings_changed
-signal audio_settings_saved
-signal audio_settings_loaded
 
-const AUDIO_FILE_PATH: String = "user://user_audio_settings.tres"
+signal audio_settings_changed
+signal audio_settings_loaded
+signal audio_settings_saved
+
+
+const USER_PATH: String = "user://user_audio_settings.tres"
 const DEFAULT_PATH: String = "res://default_bus_layout.tres"
 
 var has_unsaved_changes: bool = false
 
 
 func _ready():
-	var file_exists: bool = ResourceLoader.exists(AUDIO_FILE_PATH)
+	var file_exists: bool = ResourceLoader.exists(USER_PATH)
 	
 	if file_exists:
-		load_file_to_bus_layout()
+		load_user_bus_layout()
 	else:
-		save_bus_layout_to_file()
+		save_user_bus_layout()
 
 
 func load_default_bus_layout() -> void:
 	_load_bus_layout(DEFAULT_PATH)
 
 
-func load_file_to_bus_layout() -> void:
-	_load_bus_layout(AUDIO_FILE_PATH)
+func load_user_bus_layout() -> void:
+	_load_bus_layout(USER_PATH)
 
 
-func save_bus_layout_to_file() -> void:
-	_save_bus_layout(AUDIO_FILE_PATH)
-
-
-func _save_bus_layout(path: String):
+func save_user_bus_layout() -> void:
 	var bus_layout: AudioBusLayout = AudioServer.generate_bus_layout()
-	ResourceSaver.save(bus_layout, path)
+	ResourceSaver.save(bus_layout, USER_PATH)
 
 
 func _load_bus_layout(path: String) -> void:
