@@ -27,19 +27,16 @@ theme_override_constants/margin_bottom = 20
 [node name="VBox" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
 
-[node name="TopBar" type="MarginContainer" parent="Margin/VBox"]
+[node name="TopBar" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Margin/VBox/TopBar"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Audio Settings"
 vertical_alignment = 1
 
-[node name="RightAlign" type="HBoxContainer" parent="Margin/VBox/TopBar"]
-layout_mode = 2
-alignment = 2
-
-[node name="Back" type="Button" parent="Margin/VBox/TopBar/RightAlign"]
+[node name="Back" type="Button" parent="Margin/VBox/TopBar"]
 layout_mode = 2
 text = "Back"
 
@@ -71,6 +68,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Label" type="Label" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row"]
 layout_mode = 2
 text = "Master"
+vertical_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row"]
 custom_minimum_size = Vector2(200, 0)
@@ -92,6 +90,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 text = "Music
 "
+vertical_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row2"]
 custom_minimum_size = Vector2(200, 0)
@@ -113,6 +112,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 text = "SFX
 "
+vertical_alignment = 1
 
 [node name="VolumeSlider" type="HSlider" parent="Margin/VBox/MainBlock/Panel/Margin/VBox/Row3"]
 custom_minimum_size = Vector2(200, 0)
@@ -125,32 +125,29 @@ value = 1.0
 script = ExtResource("1_cab26")
 audio_bus = "SFX"
 
-[node name="BottomBar" type="MarginContainer" parent="Margin/VBox"]
-layout_mode = 2
-
-[node name="RightAlign" type="HBoxContainer" parent="Margin/VBox/BottomBar"]
+[node name="BottomBar" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="Save" type="Button" parent="Margin/VBox/BottomBar/RightAlign"]
+[node name="Reset" type="Button" parent="Margin/VBox/BottomBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Reset"
+
+[node name="Save" type="Button" parent="Margin/VBox/BottomBar"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Save
 "
 
-[node name="Cancel" type="Button" parent="Margin/VBox/BottomBar/RightAlign"]
+[node name="Cancel" type="Button" parent="Margin/VBox/BottomBar"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Cancel
 "
 
-[node name="Reset" type="Button" parent="Margin/VBox/BottomBar"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Reset"
-
-[connection signal="pressed" from="Margin/VBox/BottomBar/RightAlign/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Margin/VBox/BottomBar/RightAlign/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="Margin/VBox/BottomBar/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Margin/VBox/BottomBar/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Margin/VBox/BottomBar/Cancel" to="." method="_on_cancel_pressed"]

@@ -2,20 +2,22 @@
 class_name VolumeSlider
 extends HSlider
 
+const WARNING: String = "This VolumeSlider does not have a valid Audio Bus."
+
 var audio_bus: String:
 	set = _on_audio_bus_changed
 
-var bus_index: int = 0
+var bus_index: int = -1
 
 
 func _ready() -> void:
-	setup_slider()
-	drag_ended.connect(_on_drag_ended)
-	AudioBusManager.audio_settings_loaded.connect(set_volume_from_bus)
+	set_bus_index()
+	assert(bus_index != -1, WARNING);
 	
-	if not audio_bus.is_empty():
-		bus_index = AudioServer.get_bus_index(audio_bus)
-		set_volume_from_bus()
+	AudioBusManager.audio_settings_loaded.connect(set_volume_from_bus)
+	drag_ended.connect(_on_drag_ended)
+	setup_slider()
+	set_volume_from_bus()
 
 
 func setup_slider() -> void:
@@ -24,9 +26,7 @@ func setup_slider() -> void:
 
 
 func _get_property_list() -> Array:
-	print("yup")
-	bus_index = AudioServer.get_bus_index(audio_bus)
-	update_configuration_warnings()
+	set_bus_index()
 	return [
 		{
 			name = "audio_bus",
@@ -58,12 +58,16 @@ func _on_drag_ended(_value_changed) -> void:
 
 func _on_audio_bus_changed(value) -> void:
 	audio_bus = value
+	set_bus_index()
+
+
+func set_bus_index():
 	bus_index = AudioServer.get_bus_index(audio_bus)
 	update_configuration_warnings()
 
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if bus_index == -1:
-		return PackedStringArray(["The Audio Bus was not set."])
+		return PackedStringArray([WARNING])
 	else:
 		return PackedStringArray()
