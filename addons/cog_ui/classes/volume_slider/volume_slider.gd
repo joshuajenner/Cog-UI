@@ -2,7 +2,8 @@
 class_name VolumeSlider
 extends HSlider
 
-const WARNING: String = "This VolumeSlider does not have a valid Audio Bus."
+
+const WARNING: String = "This Volume Slider does not have a valid Audio Bus."
 
 var audio_bus: String:
 	set = _on_audio_bus_changed
@@ -14,15 +15,36 @@ func _ready() -> void:
 	set_bus_index()
 	assert(bus_index != -1, WARNING);
 	
-	AudioBusManager.audio_settings_loaded.connect(set_volume_from_bus)
+	AudioBusManager.bus_layout_loaded.connect(set_volume_from_bus)
 	drag_ended.connect(_on_drag_ended)
 	setup_slider()
 	set_volume_from_bus()
 
 
+func set_bus_index():
+	bus_index = AudioServer.get_bus_index(audio_bus)
+	update_configuration_warnings()
+
+
 func setup_slider() -> void:
 	max_value = 1
 	step = 0.01
+
+
+func set_volume_from_bus() -> void:
+	var volume: float = AudioServer.get_bus_volume_db(bus_index)
+	value = db_to_linear(volume)
+
+
+func _on_drag_ended(_value_changed) -> void:
+	var new_volume: float = linear_to_db(value)
+	AudioServer.set_bus_volume_db(bus_index, new_volume)
+	AudioBusManager.bus_layout_changed.emit()
+
+
+func _on_audio_bus_changed(value) -> void:
+	audio_bus = value
+	set_bus_index()
 
 
 func _get_property_list() -> Array:
@@ -43,27 +65,6 @@ func get_audio_buses() -> Array[String]:
 	for index in bus_count:
 		buses.push_back(AudioServer.get_bus_name(index))
 	return buses
-
-
-func set_volume_from_bus() -> void:
-	var volume: float = AudioServer.get_bus_volume_db(bus_index)
-	value = db_to_linear(volume)
-
-
-func _on_drag_ended(_value_changed) -> void:
-	var new_volume: float = linear_to_db(value)
-	AudioServer.set_bus_volume_db(bus_index, new_volume)
-	AudioBusManager.set_as_unsaved()
-
-
-func _on_audio_bus_changed(value) -> void:
-	audio_bus = value
-	set_bus_index()
-
-
-func set_bus_index():
-	bus_index = AudioServer.get_bus_index(audio_bus)
-	update_configuration_warnings()
 
 
 func _get_configuration_warnings() -> PackedStringArray:
