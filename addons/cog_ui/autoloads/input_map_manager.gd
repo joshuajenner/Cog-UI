@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var event_key_labels: EventKeyLabels
+@export var key_labels: KeyLabels
 
 const USER_INPUT_MAP: String = "user://user_input_map.tres"
 const DEFAULT_INPUT_MAP: String = "res://default_input_map.tres"

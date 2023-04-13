@@ -3,7 +3,7 @@ extends Button
 
 @export var action : String
 @export var event_index : int = 0 
-@export var custom_keys : EventKeyLabels = null
+@export var custom_keys : KeyLabels = null
 
 
 const INPUT_REQUEST : String = "Press any key"

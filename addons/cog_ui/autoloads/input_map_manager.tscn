@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://8pxv2p6vw3rg"]
+[gd_scene load_steps=2 format=3 uid="uid://8pxv2p6vw3rg"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/autoloads/input_map_manager.gd" id="1_ab52g"]
-[ext_resource type="Resource" uid="uid://cm2102d11g8vp" path="res://addons/cog_ui/resources/event_key_labels.tres" id="2_8xg6k"]
 
 [node name="input_map_manager" type="Node"]
 script = ExtResource("1_ab52g")
-event_key_labels = ExtResource("2_8xg6k")

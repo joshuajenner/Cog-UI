@@ -1,4 +1,4 @@
-class_name EventKeyLabels
+class_name KeyLabels
 extends Resource
 
 
