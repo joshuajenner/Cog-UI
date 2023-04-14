@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://t0hguknw5ovb"]
+[gd_scene load_steps=2 format=3 uid="uid://t0hguknw5ovb"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/input_map_button.gd" id="1_0gmay"]
-[ext_resource type="Resource" uid="uid://bp5vakgykpgjw" path="res://addons/cog_ui/resources/key_labels.tres" id="2_lselx"]
 
 [node name="InputMapButton" type="Button"]
 anchors_preset = 8
@@ -15,5 +14,5 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "Hello"
 script = ExtResource("1_0gmay")
-custom_keys = ExtResource("2_lselx")

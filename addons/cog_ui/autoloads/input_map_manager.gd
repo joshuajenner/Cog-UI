@@ -33,6 +33,13 @@ func save_user_input_map() -> void:
 	_save_input_map(USER_INPUT_MAP)
 
 
+func get_custom_key(keycode: int) -> String:
+	if key_labels != null:
+		return key_labels.get_label(keycode)
+	else:
+		return ""
+
+
 func _save_input_map(path: String) -> void:
 	var input_resource: InputMapResource = InputMapResource.new()
 	ResourceSaver.save(input_resource, path)

@@ -59,22 +59,23 @@ func assign_event_to_action(new_event: InputEvent):
 
 
 func set_event_label(event : InputEvent):
-	if custom_keys != null:
-		if event.physical_keycode != 0:
-			var new_label : String = custom_keys.get_label(event.physical_keycode)
-			if new_label != "":
-				event_label = new_label
-				return
-		if event.keycode != 0:
-			var new_label : String = custom_keys.get_label(event.keycode)
-			if new_label != "":
-				event_label = new_label
-				return
+	var event_keycode: int
+	var event_text: String
+	
+	if event.physical_keycode != 0:
+		event_keycode = event.physical_keycode
+		event_text = event.as_text_physical_keycode()
+	elif event.keycode != 0:
+		event_keycode = event.keycode
+		event_text = event.as_text_keycode()
 		
-	if event.keycode == 0:
-		event_label = event.as_text_physical_keycode()
-	else:
-		event_label = event.as_text_keycode()
+	var new_label : String = InputMapManager.get_custom_key(event_keycode)
+	if new_label != "":
+		event_label = new_label
+		pass
+		
+	event_label = event_text
+
 
 
 func _on_pressed():
