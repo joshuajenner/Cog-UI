@@ -2,6 +2,8 @@ extends Node
 
 
 @export var key_labels: KeyLabels
+@export var mouse_button_labels: MouseButtonLabels
+@export var joy_button_labels: JoyButtonLabels
 
 const USER_INPUT_MAP: String = "user://user_input_map.tres"
 const DEFAULT_INPUT_MAP: String = "res://default_input_map.tres"

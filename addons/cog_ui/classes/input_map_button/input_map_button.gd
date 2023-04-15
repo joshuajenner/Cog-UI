@@ -2,9 +2,9 @@ class_name InputMapButton
 extends Button
 
 @export var action : String
-@export var event_index : int = 0 
-@export var custom_keys : KeyLabels = null
-
+@export var event_index : int = 0
+@export var kbm_can_assign: bool = true
+@export var joypad_can_assign: bool = false
 
 const INPUT_REQUEST : String = "Press any key"
 
@@ -23,7 +23,7 @@ func _ready():
 func get_events_from_action():
 	var events : Array[InputEvent] = InputMap.action_get_events(action)
 	if events.size() > event_index:
-		set_event_label(events[event_index])
+		set_key_label(events[event_index])
 		disabled = false
 	elif events.size() < event_index:
 		disabled = true
@@ -38,9 +38,11 @@ func _input(event):
 			waiting_for_assign = false
 		elif event is InputEventKey and event.is_pressed():
 			assign_event_to_action(event)
-			set_event_label(event)
+			set_key_label(event)
 			text = event_label
 			release_focus()
+		elif event is InputEventMouseButton:
+			print(event.as_text())
 
 
 func assign_event_to_action(new_event: InputEvent):
@@ -58,7 +60,7 @@ func assign_event_to_action(new_event: InputEvent):
 	waiting_for_assign = false
 
 
-func set_event_label(event : InputEvent):
+func set_key_label(event : InputEvent):
 	var event_keycode: int
 	var event_text: String
 	
@@ -75,7 +77,6 @@ func set_event_label(event : InputEvent):
 		pass
 		
 	event_label = event_text
-
 
 
 func _on_pressed():
