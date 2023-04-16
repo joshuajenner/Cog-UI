@@ -1,12 +1,12 @@
 class_name InputMapButton
 extends Button
 
-#@onready var tooltip = $Tooltip
 
 @export var action: String
 @export var event_index: int = 0
 @export var kbm_can_assign: bool = true
 @export var joypad_can_assign: bool = false
+@export var handle_assign: bool = true
 
 const INPUT_REQUEST: String = "Press any key"
 
@@ -16,16 +16,16 @@ var waiting_for_assign: bool = false
 
 func _ready():
 	if InputMap.has_action(action):
-		get_events_from_action()
+		set_event_label_from_action()
 		pressed.connect(_on_pressed)
 	else:
 		disabled = true
 
 
-func get_events_from_action():
+func set_event_label_from_action():
 	var events : Array[InputEvent] = InputMap.action_get_events(action)
 	if events.size() > event_index:
-		set_event_label(events[event_index])
+		set_event_label_from_event(events[event_index])
 		disabled = false
 	elif events.size() < event_index:
 		disabled = true
@@ -40,7 +40,7 @@ func _input(event):
 			waiting_for_assign = false
 		elif event is InputEventKey or event is InputEventMouseButton and event.is_pressed():
 			assign_event_to_action(event)
-			set_event_label(event)
+			set_event_label_from_event(event)
 			text = event_label
 			get_viewport().set_input_as_handled()
 			release_focus()
@@ -61,7 +61,7 @@ func assign_event_to_action(new_event: InputEvent):
 	waiting_for_assign = false
 
 
-func set_event_label(event : InputEvent) -> void:
+func set_event_label_from_event(event : InputEvent) -> void:
 	if event is InputEventKey:
 		var event_keycode: int
 		var event_text: String
