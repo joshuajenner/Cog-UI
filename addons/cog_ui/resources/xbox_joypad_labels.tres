@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="JoyButtonLabels" load_steps=2 format=3 uid="uid://brt8xsfj4x8j7"]
+
+[ext_resource type="Script" path="res://addons/cog_ui/resources/joy_button_labels.gd" id="1_acaw4"]
+
+[resource]
+script = ExtResource("1_acaw4")
+INVALID = ""
+A = "A"
+B = "B"
+X = "X"
+Y = "Y"
+BACK = "Back"
+GUIDE = "Guide"
+START = "Start"
+LEFT_STICK = "Left Stick"
+RIGHT_STICK = "Right Stick"
+LEFT_SHOULDER = "Left Bumper"
+RIGHT_SHOULDER = "Right Bumper"
+DPAD_UP = "Dpad Up"
+DPAD_DOWN = "Dpad Down"
+DPAD_LEFT = "Dpad Left"
+DPAD_RIGHT = "Dpad Right"
+MISC1 = ""
+PADDLE1 = ""
+PADDLE2 = ""
+PADDLE3 = ""
+PADDLE4 = ""
+TOUCHPAD = ""

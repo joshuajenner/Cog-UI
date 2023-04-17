@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://8pxv2p6vw3rg"]
+[gd_scene load_steps=3 format=3 uid="uid://8pxv2p6vw3rg"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/autoloads/input_map_manager.gd" id="1_ab52g"]
+[ext_resource type="Resource" uid="uid://brt8xsfj4x8j7" path="res://addons/cog_ui/resources/xbox_joypad_labels.tres" id="2_n140o"]
 
 [node name="input_map_manager" type="Node"]
 script = ExtResource("1_ab52g")
+joy_button_labels = ExtResource("2_n140o")

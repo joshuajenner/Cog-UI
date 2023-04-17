@@ -6,7 +6,6 @@ extends Button
 @export var event_index: int = 0
 @export var kbm_can_assign: bool = true
 @export var joypad_can_assign: bool = false
-@export var handle_assign: bool = true
 
 const INPUT_REQUEST: String = "Press any key"
 
@@ -84,7 +83,7 @@ func set_event_label_from_event(event : InputEvent) -> void:
 		new_label = InputMapManager.get_key_label(event_keycode)
 		if new_label != "":
 			event_label = new_label
-			pass
+			return
 		
 		event_label = event_text
 		
@@ -92,7 +91,7 @@ func set_event_label_from_event(event : InputEvent) -> void:
 		new_label = InputMapManager.get_mouse_label(event.button_index)
 		if new_label != "":
 			event_label = new_label
-			pass
+			return
 		
 		event_label = event.as_text()
 	
@@ -100,7 +99,7 @@ func set_event_label_from_event(event : InputEvent) -> void:
 		new_label = InputMapManager.get_joypad_label(event.button_index)
 		if new_label != "":
 			event_label = new_label
-			pass
+			return
 		
 		event_label = event.as_text()
 
