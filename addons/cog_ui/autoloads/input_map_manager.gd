@@ -35,9 +35,23 @@ func save_user_input_map() -> void:
 	_save_input_map(USER_INPUT_MAP)
 
 
-func get_custom_key(keycode: int) -> String:
+func get_key_label(keycode: int) -> String:
 	if key_labels != null:
 		return key_labels.get_label(keycode)
+	else:
+		return ""
+
+
+func get_mouse_label(mouse_index: int) -> String:
+	if mouse_button_labels != null:
+		return mouse_button_labels.get_label(mouse_index)
+	else:
+		return ""
+
+
+func get_joypad_label(joypad_index: int) -> String:
+	if joy_button_labels != null:
+		return joy_button_labels.get_label(joypad_index)
 	else:
 		return ""
 

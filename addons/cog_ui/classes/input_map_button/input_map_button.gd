@@ -38,7 +38,13 @@ func _input(event):
 		if event.is_action_pressed("ui_cancel"):
 			text = event_label
 			waiting_for_assign = false
-		elif event is InputEventKey or event is InputEventMouseButton and event.is_pressed():
+		elif kbm_can_assign and event is InputEventKey or event is InputEventMouseButton and event.is_pressed():
+			assign_event_to_action(event)
+			set_event_label_from_event(event)
+			text = event_label
+			get_viewport().set_input_as_handled()
+			release_focus()
+		elif joypad_can_assign and event is InputEventJoypadButton and event.is_pressed():
 			assign_event_to_action(event)
 			set_event_label_from_event(event)
 			text = event_label
@@ -62,6 +68,8 @@ func assign_event_to_action(new_event: InputEvent):
 
 
 func set_event_label_from_event(event : InputEvent) -> void:
+	var new_label: String
+	
 	if event is InputEventKey:
 		var event_keycode: int
 		var event_text: String
@@ -73,7 +81,7 @@ func set_event_label_from_event(event : InputEvent) -> void:
 			event_keycode = event.keycode
 			event_text = event.as_text_keycode()
 			
-		var new_label : String = InputMapManager.get_custom_key(event_keycode)
+		new_label = InputMapManager.get_key_label(event_keycode)
 		if new_label != "":
 			event_label = new_label
 			pass
@@ -81,6 +89,19 @@ func set_event_label_from_event(event : InputEvent) -> void:
 		event_label = event_text
 		
 	elif event is InputEventMouseButton:
+		new_label = InputMapManager.get_mouse_label(event.button_index)
+		if new_label != "":
+			event_label = new_label
+			pass
+		
+		event_label = event.as_text()
+	
+	elif event is InputEventJoypadButton:
+		new_label = InputMapManager.get_joypad_label(event.button_index)
+		if new_label != "":
+			event_label = new_label
+			pass
+		
 		event_label = event.as_text()
 
 
