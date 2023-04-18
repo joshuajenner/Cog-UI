@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm5dpeilw3ue7"]
+[gd_scene load_steps=3 format=3 uid="uid://celiyo5tm1yi8"]
 
 [ext_resource type="Script" path="res://examples/input_settings/input_settings.gd" id="1_7cpw7"]
-[ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/input_map_button.gd" id="2_3aukn"]
+[ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/key_map_button.gd" id="2_7mh8v"]
 
 [node name="input_settings" type="Control"]
 layout_mode = 3
@@ -109,7 +109,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_up"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_up"
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveUp"]
@@ -117,7 +117,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_up"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_up"
 event_index = 1
 
@@ -126,7 +126,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_up"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_up"
 event_index = 2
 
@@ -147,7 +147,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_right"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_right"
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveRight"]
@@ -155,7 +155,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_right"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_right"
 event_index = 1
 
@@ -164,7 +164,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_right"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_right"
 event_index = 2
 
@@ -184,7 +184,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_down"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_down"
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveDown"]
@@ -192,7 +192,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_down"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_down"
 event_index = 1
 
@@ -201,7 +201,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_down"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_down"
 event_index = 2
 
@@ -222,7 +222,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_left"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_left"
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveLeft"]
@@ -230,7 +230,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_left"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_left"
 event_index = 1
 
@@ -239,7 +239,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "move_left"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "move_left"
 event_index = 2
 
@@ -259,7 +259,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "jump"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "jump"
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/Jump"]
@@ -267,7 +267,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "jump"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "jump"
 event_index = 1
 
@@ -276,7 +276,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "jump"
-script = ExtResource("2_3aukn")
+script = ExtResource("2_7mh8v")
 action = "jump"
 event_index = 2
 

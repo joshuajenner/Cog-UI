@@ -1,11 +1,9 @@
-class_name InputMapButton
+class_name KeyMapButton
 extends Button
 
 
 @export var action: String
 @export var event_index: int = 0
-@export var kbm_can_assign: bool = true
-@export var joypad_can_assign: bool = false
 
 const INPUT_REQUEST: String = "Press any key"
 
@@ -37,13 +35,7 @@ func _input(event):
 		if event.is_action_pressed("ui_cancel"):
 			text = event_label
 			waiting_for_assign = false
-		elif kbm_can_assign and event is InputEventKey or event is InputEventMouseButton and event.is_pressed():
-			assign_event_to_action(event)
-			set_event_label_from_event(event)
-			text = event_label
-			get_viewport().set_input_as_handled()
-			release_focus()
-		elif joypad_can_assign and event is InputEventJoypadButton and event.is_pressed():
+		elif event is InputEventKey or event is InputEventMouseButton and event.is_pressed():
 			assign_event_to_action(event)
 			set_event_label_from_event(event)
 			text = event_label
@@ -89,14 +81,6 @@ func set_event_label_from_event(event : InputEvent) -> void:
 		
 	elif event is InputEventMouseButton:
 		new_label = InputMapManager.get_mouse_label(event.button_index)
-		if new_label != "":
-			event_label = new_label
-			return
-		
-		event_label = event.as_text()
-	
-	elif event is InputEventJoypadButton:
-		new_label = InputMapManager.get_joypad_label(event.button_index)
 		if new_label != "":
 			event_label = new_label
 			return

@@ -3,7 +3,6 @@ extends Node
 
 @export var key_labels: KeyLabels
 @export var mouse_button_labels: MouseButtonLabels
-@export var joy_button_labels: JoyButtonLabels
 
 const USER_INPUT_MAP: String = "user://user_input_map.tres"
 const DEFAULT_INPUT_MAP: String = "res://default_input_map.tres"
@@ -45,13 +44,6 @@ func get_key_label(keycode: int) -> String:
 func get_mouse_label(mouse_index: int) -> String:
 	if mouse_button_labels != null:
 		return mouse_button_labels.get_label(mouse_index)
-	else:
-		return ""
-
-
-func get_joypad_label(joypad_index: int) -> String:
-	if joy_button_labels != null:
-		return joy_button_labels.get_label(joypad_index)
 	else:
 		return ""
 
