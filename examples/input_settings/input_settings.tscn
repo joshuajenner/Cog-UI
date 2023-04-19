@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ded2iytq3l3wj"]
+[gd_scene load_steps=3 format=3 uid="uid://celiyo5tm1yi8"]
 
 [ext_resource type="Script" path="res://examples/input_settings/input_settings.gd" id="1_7cpw7"]
 [ext_resource type="Script" path="res://addons/cog_ui/classes/key_map_button/key_map_button.gd" id="2_t1um4"]

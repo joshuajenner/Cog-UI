@@ -18,6 +18,10 @@ func _ready():
 		save_user_input_map()
 
 
+func assign_event(action: String, event: InputEvent, index: int) -> void:
+	pass
+
+
 func save_default_input_map() -> void:
 	_save_input_map(DEFAULT_INPUT_MAP)
 

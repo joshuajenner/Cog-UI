@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://b8cdmw5ebxve1"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/classes/key_map_button/key_map_button.gd" id="1_7ajn2"]
 
-[node name="InputMapButton" type="Button"]
+[node name="KeyMapButton" type="Button"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
