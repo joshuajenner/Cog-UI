@@ -2,13 +2,6 @@ class_name KeyMapButton
 extends MapButton
 
 
-#func _ready():
-#	super()
-#	if InputMap.has_action(action):
-#		set_event_label_from_action()
-#	else:
-#		disabled = true
-
 func event_can_be_assigned(event: InputEvent) -> bool:
 	if event is InputEventKey or event is InputEventMouseButton and event.is_pressed():
 		return true

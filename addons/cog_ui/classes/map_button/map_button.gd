@@ -40,7 +40,7 @@ func get_event_display(event: InputEvent) -> String:
 
 
 func _input(event: InputEvent) -> void:
-	if waiting_for_assign:
+	if handling_assigns and waiting_for_assign:
 		if event_can_be_assigned(event):
 			InputMapManager.assign_event(action, event, event_index)
 		elif event.is_action("ui_cancel"):
@@ -48,7 +48,6 @@ func _input(event: InputEvent) -> void:
 			display_event()
 		elif event.is_action_pressed("ui_text_backspace"):
 			InputMapManager.unassign_event()
-		
 
 
 func event_can_be_assigned(event: InputEvent) -> bool:
