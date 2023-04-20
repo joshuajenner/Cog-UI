@@ -1,5 +1,7 @@
 extends Node
 
+signal assign_requested
+signal assign_completed
 
 @export var key_labels: KeyLabels
 @export var mouse_button_labels: MouseButtonLabels
@@ -18,7 +20,23 @@ func _ready():
 		save_user_input_map()
 
 
-func assign_event(action: String, event: InputEvent, index: int) -> void:
+func assign_event(action: String, new_event: InputEvent, event_index: int) -> void:
+	var old_events: Array[InputEvent] = InputMap.action_get_events(action)
+	
+	if old_events.size() <= event_index:
+		InputMap.action_add_event(action, new_event)
+	else:
+		InputMap.action_erase_events(action)
+		for event in range(0, old_events.size()):
+			if event != event_index:
+				InputMap.action_add_event(action, old_events[event])
+			else:
+				InputMap.action_add_event(action, new_event)
+	
+	assign_completed.emit(action)
+
+
+func unassign_event() -> void:
 	pass
 
 
