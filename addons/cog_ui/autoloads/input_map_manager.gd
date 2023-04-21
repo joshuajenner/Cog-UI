@@ -39,6 +39,70 @@ func assign_event(action: String, new_event: InputEvent, event_index: int) -> vo
 func unassign_event() -> void:
 	pass
 
+func action_has_event
+
+func get_event_display_kbm(action: String, event_index: int) -> String:
+	var display_event: InputEvent = get_event_from_action_kbm(action, event_index)
+	var custom_label: String = ""
+	
+	if display_event is InputEventKey:
+		var event_keycode: int
+		var event_as_text: String
+		
+		if display_event.physical_keycode != 0:
+			event_keycode = display_event.physical_keycode
+			event_as_text = display_event.as_text_physical_keycode()
+		elif display_event.keycode != 0:
+			event_keycode = display_event.keycode
+			event_as_text = display_event.as_text_keycode()
+			
+		custom_label = get_key_label(event_keycode)
+		if custom_label != "":
+			return custom_label
+		else:
+			return event_as_text
+		
+	elif display_event is InputEventMouseButton:
+		custom_label = get_mouse_label(display_event.button_index)
+		if custom_label != "":
+			return custom_label
+		else:
+			return display_event.as_text()
+		
+	return ""
+
+
+func get_event_from_action_kbm(action: String, event_index: int):
+	var action_events: Array[InputEvent] = InputMap.action_get_events(action)
+	var current_index = 0
+	
+	for event in action_events:
+		if event is InputEventKey or event is InputEventMouseButton:
+			if current_index == event_index:
+				return event
+			else:
+				current_index += 1
+	
+	return null
+
+
+func get_event_display_joypad(action: String, event_index: int) -> String:
+	return ""
+
+
+func get_key_label(keycode: int) -> String:
+	if key_labels != null:
+		return key_labels.get_label(keycode)
+	else:
+		return ""
+
+
+func get_mouse_label(mouse_index: int) -> String:
+	if mouse_button_labels != null:
+		return mouse_button_labels.get_label(mouse_index)
+	else:
+		return ""
+
 
 func save_default_input_map() -> void:
 	_save_input_map(DEFAULT_INPUT_MAP)
@@ -54,20 +118,6 @@ func load_user_input_map() -> void:
 
 func save_user_input_map() -> void:
 	_save_input_map(USER_INPUT_MAP)
-
-
-func get_key_label(keycode: int) -> String:
-	if key_labels != null:
-		return key_labels.get_label(keycode)
-	else:
-		return ""
-
-
-func get_mouse_label(mouse_index: int) -> String:
-	if mouse_button_labels != null:
-		return mouse_button_labels.get_label(mouse_index)
-	else:
-		return ""
 
 
 func _save_input_map(path: String) -> void:

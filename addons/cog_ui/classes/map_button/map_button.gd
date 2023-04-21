@@ -16,14 +16,11 @@ func _ready():
 	pressed.connect(_on_pressed)
 	InputMapManager.assign_completed.connect(_on_assign_completed)
 	
-	var event: InputEvent = get_event_from_action()
-	if event != null:
-		event_display = get_event_display(event)
-		display_event()
+	display_event_from_action()
 
 
 func display_event_from_action() -> void:
-	event_display = InputMapManager.get_display_kbm(action, event_index)
+	event_display = InputMapManager.get_event_display_kbm(action, event_index)
 	text = event_display
 
 
@@ -43,11 +40,14 @@ func _input(event: InputEvent) -> void:
 	if handling_assigns and waiting_for_assign:
 		if event_can_be_assigned(event):
 			InputMapManager.assign_event(action, event, event_index)
+			waiting_for_assign = false
 		elif event.is_action("ui_cancel"):
 			waiting_for_assign = false
 			display_event()
 		elif event.is_action_pressed("ui_text_backspace"):
 			InputMapManager.unassign_event()
+			waiting_for_assign = false
+			display_event()
 
 
 func event_can_be_assigned(event: InputEvent) -> bool:
@@ -65,11 +65,8 @@ func display_request() -> void:
 
 func _on_assign_completed(signal_action: String) -> void:
 	if action == signal_action:
-		# dupe code, replace
-		var event: InputEvent = get_event_from_action()
-		if event != null:
-			event_display = get_event_display(event)
-			display_event()
+		event_display = InputMapManager.get_event_display_kbm(action, event_index)
+		display_event()
 
 
 func _on_pressed() -> void:
