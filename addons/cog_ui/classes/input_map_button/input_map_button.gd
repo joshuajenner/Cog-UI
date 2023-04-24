@@ -1,4 +1,4 @@
-class_name MapButton
+class_name InputMapButton
 extends Button
 
 
@@ -42,16 +42,17 @@ func get_event_display(event: InputEvent) -> String:
 
 func _input(event: InputEvent) -> void:
 	if handling_assigns and waiting_for_assign:
-		if event.is_action(cancel_assign_action):
+		if event.is_action_pressed(cancel_assign_action):
 			waiting_for_assign = false
 			display_event()
 		elif event.is_action_pressed(clear_event_action):
 			InputMapManager.unassign_event(action, event_index, event_group)
 			waiting_for_assign = false
 			display_event()
-		else:
+		elif event.is_pressed():
 			InputMapManager.assign_event(action, event, event_index, event_group)
 			waiting_for_assign = false
+			get_viewport().set_input_as_handled()
 
 
 func display_event() -> void:

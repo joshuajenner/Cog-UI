@@ -25,23 +25,33 @@ func _ready():
 		save_user_input_map()
 
 
-func assign_event(action: String, new_event: InputEvent, event_index: int) -> void:
+func assign_event(action: String, new_event: InputEvent, new_event_index: int, event_type: int) -> void:
 	var old_events: Array[InputEvent] = InputMap.action_get_events(action)
 	
-	if old_events.size() <= event_index:
-		InputMap.action_add_event(action, new_event)
-	else:
-		InputMap.action_erase_events(action)
-		for event in range(0, old_events.size()):
-			if event != event_index:
-				InputMap.action_add_event(action, old_events[event])
-			else:
+	InputMap.action_erase_events(action)
+	for event_index in range(0, old_events.size()):
+		if event_is_type(old_events[event_index], event_type):
+			if event_index == new_event_index:
 				InputMap.action_add_event(action, new_event)
+			else:
+				InputMap.action_add_event(action, old_events[event_index])
+		else:
+			InputMap.action_add_event(action, old_events[event_index])
+	
+#	if old_events.size() <= event_index:
+#		InputMap.action_add_event(action, new_event)
+#	else:
+#		InputMap.action_erase_events(action)
+#		for event in range(0, old_events.size()):
+#			if event != event_index:
+#				InputMap.action_add_event(action, old_events[event])
+#			else:
+#				InputMap.action_add_event(action, new_event)
 	
 	assign_completed.emit(action)
 
 
-func unassign_event(action: String, event_index: int) -> void:
+func unassign_event(action: String, event_index: int, event_type: int) -> void:
 	pass
 
 
@@ -102,17 +112,18 @@ func event_is_type(event: InputEvent, event_type: int) -> bool:
 			return false
 		
 	elif event_type == EVENT_GROUP.JOYPAD:
-		if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		if event is InputEventJoypadButton:
 			return true
+		elif event is InputEventJoypadMotion:
+			if event.axis == JOY_AXIS_TRIGGER_LEFT or event.axis == JOY_AXIS_TRIGGER_RIGHT:
+				return true
+			else:
+				return false
 		else:
 			return false
 		
 	else:
 		return false
-
-
-func get_event_display_joypad(action: String, event_index: int) -> String:
-	return ""
 
 
 func get_key_label(keycode: int) -> String:
