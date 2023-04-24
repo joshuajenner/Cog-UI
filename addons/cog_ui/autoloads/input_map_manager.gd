@@ -10,6 +10,11 @@ const USER_INPUT_MAP: String = "user://user_input_map.tres"
 const DEFAULT_INPUT_MAP: String = "res://default_input_map.tres"
 
 
+enum EVENT_GROUP {
+	KBM,
+	JOYPAD
+}
+
 func _ready():
 	save_default_input_map()
 	var file_exists: bool = ResourceLoader.exists(USER_INPUT_MAP)
@@ -36,13 +41,16 @@ func assign_event(action: String, new_event: InputEvent, event_index: int) -> vo
 	assign_completed.emit(action)
 
 
-func unassign_event() -> void:
+func unassign_event(action: String, event_index: int) -> void:
 	pass
 
-func action_has_event
 
-func get_event_display_kbm(action: String, event_index: int) -> String:
-	var display_event: InputEvent = get_event_from_action_kbm(action, event_index)
+func action_has_event():
+	pass
+
+
+func get_event_display(action: String, event_index: int, event_type: int) -> String:
+	var display_event: InputEvent = get_event_from_action(action, event_index, event_type)
 	var custom_label: String = ""
 	
 	if display_event is InputEventKey:
@@ -72,18 +80,35 @@ func get_event_display_kbm(action: String, event_index: int) -> String:
 	return ""
 
 
-func get_event_from_action_kbm(action: String, event_index: int):
+func get_event_from_action(action: String, event_index: int, event_type: int):
 	var action_events: Array[InputEvent] = InputMap.action_get_events(action)
 	var current_index = 0
 	
 	for event in action_events:
-		if event is InputEventKey or event is InputEventMouseButton:
+		if event_is_type(event, event_type):
 			if current_index == event_index:
 				return event
 			else:
 				current_index += 1
 	
 	return null
+
+
+func event_is_type(event: InputEvent, event_type: int) -> bool:
+	if event_type == EVENT_GROUP.KBM:
+		if event is InputEventKey or event is InputEventMouseButton:
+			return true
+		else:
+			return false
+		
+	elif event_type == EVENT_GROUP.JOYPAD:
+		if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+			return true
+		else:
+			return false
+		
+	else:
+		return false
 
 
 func get_event_display_joypad(action: String, event_index: int) -> String:

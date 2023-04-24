@@ -9,15 +9,15 @@ func event_can_be_assigned(event: InputEvent) -> bool:
 		return false
 
 
-func set_event_label_from_action():
-	var events: Array[InputEvent] = InputMap.action_get_events(action)
-	if events.size() > event_index:
-		set_event_label_from_event(events[event_index])
-		disabled = false
-	elif events.size() < event_index:
-		disabled = true
-	
-	text = event_display
+#func set_event_label_from_action():
+#	var events: Array[InputEvent] = InputMap.action_get_events(action)
+#	if events.size() > event_index:
+#		set_event_label_from_event(events[event_index])
+#		disabled = false
+#	elif events.size() < event_index:
+#		disabled = true
+#
+#	text = event_display
 
 
 #func _input(event):
@@ -48,38 +48,38 @@ func set_event_label_from_action():
 #	waiting_for_assign = false
 
 
-func get_label_from_event(event: InputEvent) -> String:
-	return "yup"
+#func get_label_from_event(event: InputEvent) -> String:
+#	return "yup"
 
 
-func set_event_label_from_event(event : InputEvent) -> void:
-	var new_label: String
-	
-	if event is InputEventKey:
-		var event_keycode: int
-		var event_text: String
-		
-		if event.physical_keycode != 0:
-			event_keycode = event.physical_keycode
-			event_text = event.as_text_physical_keycode()
-		elif event.keycode != 0:
-			event_keycode = event.keycode
-			event_text = event.as_text_keycode()
-			
-		new_label = InputMapManager.get_key_label(event_keycode)
-		if new_label != "":
-			event_display = new_label
-			return
-		
-		event_display = event_text
-		
-	elif event is InputEventMouseButton:
-		new_label = InputMapManager.get_mouse_label(event.button_index)
-		if new_label != "":
-			event_display = new_label
-			return
-		
-		event_display = event.as_text()
+#func set_event_label_from_event(event : InputEvent) -> void:
+#	var new_label: String
+#
+#	if event is InputEventKey:
+#		var event_keycode: int
+#		var event_text: String
+#
+#		if event.physical_keycode != 0:
+#			event_keycode = event.physical_keycode
+#			event_text = event.as_text_physical_keycode()
+#		elif event.keycode != 0:
+#			event_keycode = event.keycode
+#			event_text = event.as_text_keycode()
+#
+#		new_label = InputMapManager.get_key_label(event_keycode)
+#		if new_label != "":
+#			event_display = new_label
+#			return
+#
+#		event_display = event_text
+#
+#	elif event is InputEventMouseButton:
+#		new_label = InputMapManager.get_mouse_label(event.button_index)
+#		if new_label != "":
+#			event_display = new_label
+#			return
+#
+#		event_display = event.as_text()
 
 
 #func _on_pressed():
