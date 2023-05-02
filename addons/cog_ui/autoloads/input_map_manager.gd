@@ -1,7 +1,8 @@
 extends Node
 
-signal assign_requested
-signal assign_completed
+signal edit_requested
+signal edit_canceled
+signal edit_completed
 
 @export var key_labels: KeyLabels
 @export var mouse_button_labels: MouseButtonLabels
@@ -27,35 +28,39 @@ func _ready():
 
 func assign_event(action: String, new_event: InputEvent, new_event_index: int, event_type: int) -> void:
 	var old_events: Array[InputEvent] = InputMap.action_get_events(action)
+	var type_index: int = 0
 	
 	InputMap.action_erase_events(action)
 	for event_index in range(0, old_events.size()):
 		if event_is_type(old_events[event_index], event_type):
-			if event_index == new_event_index:
+			if new_event_index == type_index:
 				InputMap.action_add_event(action, new_event)
 			else:
 				InputMap.action_add_event(action, old_events[event_index])
+			type_index += 1
 		else:
 			InputMap.action_add_event(action, old_events[event_index])
 	
-#	if old_events.size() <= event_index:
-#		InputMap.action_add_event(action, new_event)
-#	else:
-#		InputMap.action_erase_events(action)
-#		for event in range(0, old_events.size()):
-#			if event != event_index:
-#				InputMap.action_add_event(action, old_events[event])
-#			else:
-#				InputMap.action_add_event(action, new_event)
-	
-	assign_completed.emit(action)
+	edit_completed.emit(action)
 
 
 func unassign_event(action: String, event_index: int, event_type: int) -> void:
-	pass
+	var old_events: Array[InputEvent] = InputMap.action_get_events(action)
+	var type_index: int = 0
+	
+	InputMap.action_erase_events(action)
+	for index in range(0, old_events.size()):
+		if event_is_type(old_events[index], event_type):
+			if event_index != type_index:
+				InputMap.action_add_event(action, old_events[event_index])
+			type_index += 1
+		else:
+			InputMap.action_add_event(action, old_events[index])
+	
+	edit_completed.emit(action)
 
 
-func action_has_event():
+func other_action_has_event(original_action: String, check_event: InputEvent):
 	pass
 
 
