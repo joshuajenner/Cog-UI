@@ -12,6 +12,7 @@ extends Button
 
 const INPUT_REQUEST: String = "Press any key"
 
+var event: InputEvent = null
 var event_display: String = ""
 var waiting_for_assign: bool = false
 
@@ -20,15 +21,18 @@ func _ready():
 	pressed.connect(_on_pressed)
 	InputMapManager.edit_completed.connect(_on_edit_completed)
 	
-	display_event_from_action()
+	event = InputMapManager.get_event_from_action(action, event_index, event_group)
+	event_display = InputMapManager.get_event_display(event)
+	
+	display_event()
 	# get_event_from_action
 	# get_display_from_event
 	# display_event()
 
 
-func display_event_from_action() -> void:
-	event_display = InputMapManager.get_event_display(action, event_index, InputMapManager.EVENT_GROUP.KBM)
-	text = event_display
+#func display_event_from_action() -> void:
+#	event_display = InputMapManager.get_event_display(action, event_index, InputMapManager.EVENT_GROUP.KBM)
+#	text = event_display
 
 #func get_event_from_action() -> InputEvent:
 #	var events: Array[InputEvent] = InputMap.action_get_events(action)
@@ -45,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	if handling_assigns and waiting_for_assign:
 		if event.is_action_pressed(cancel_edit_action):
 			waiting_for_assign = false
-			InputMapManager.edit_canceled.emit()
+			InputMapManager.edit_canceled.emit(action)
 			display_event()
 		elif event.is_action_pressed(clear_event_action):
 			InputMapManager.unassign_event(action, event_index, event_group)
@@ -67,7 +71,8 @@ func display_request() -> void:
 
 func _on_edit_completed(signal_action: String) -> void:
 	if action == signal_action:
-		event_display = InputMapManager.get_event_display(action, event_index, InputMapManager.EVENT_GROUP.KBM)
+		event = InputMapManager.get_event_from_action(action, event_index, event_group)
+		event_display = InputMapManager.get_event_display(event)
 		display_event()
 
 

@@ -308,6 +308,3 @@ text = "Save
 [node name="Cancel" type="Button" parent="Margin/VBox/BottomBar"]
 layout_mode = 2
 text = "Cancel"
-
-[connection signal="button_down" from="Margin/VBox/BottomBar/Save" to="." method="_on_save_button_down"]
-[connection signal="button_down" from="Margin/VBox/BottomBar/Cancel" to="." method="_on_cancel_button_down"]

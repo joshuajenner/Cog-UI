@@ -28,22 +28,20 @@ func _ready():
 
 func assign_event(action: String, new_event: InputEvent, new_event_index: int, event_type: int) -> void:
 	var old_events: Array[InputEvent] = InputMap.action_get_events(action)
-	var type_index: int = 0
+	var type_index: int = -1
 	
-	if old_events.size() > 0:
-		InputMap.action_erase_events(action)
-		for event_index in range(0, old_events.size()):
-			if event_is_type(old_events[event_index], event_type):
+	if old_events.size() == new_event_index:
+		InputMap.action_add_event(action, new_event)
+		
+	elif old_events.size() > 0:
+		for event in old_events:
+			if event_is_type(event, event_type):
+				InputMap.action_erase_event(action, event)
+				type_index += 1
 				if new_event_index == type_index:
 					InputMap.action_add_event(action, new_event)
 				else:
-					InputMap.action_add_event(action, old_events[event_index])
-				type_index += 1
-			else:
-				InputMap.action_add_event(action, old_events[event_index])
-		
-		if new_event_index >= type_index:
-			InputMap.action_add_event(action, new_event)
+					InputMap.action_add_event(action, event)
 	else:
 		InputMap.action_add_event(action, new_event)
 	
@@ -54,14 +52,11 @@ func unassign_event(action: String, event_index: int, event_type: int) -> void:
 	var old_events: Array[InputEvent] = InputMap.action_get_events(action)
 	var type_index: int = 0
 	
-	InputMap.action_erase_events(action)
-	for index in range(0, old_events.size()):
-		if event_is_type(old_events[index], event_type):
-			if event_index != type_index:
-				InputMap.action_add_event(action, old_events[index])
+	for event in old_events:
+		if event_is_type(event, event_type):
+			if event_index == type_index:
+				InputMap.action_erase_event(action, event)
 			type_index += 1
-		else:
-			InputMap.action_add_event(action, old_events[index])
 	
 	edit_completed.emit(action)
 
@@ -78,8 +73,9 @@ func other_action_has_event(original_action: String, check_event: InputEvent):
 	return event_found
 
 
-func get_event_display(action: String, event_index: int, event_type: int) -> String:
-	var display_event: InputEvent = get_event_from_action(action, event_index, event_type)
+func get_event_display(display_event: InputEvent) -> String:
+	#old params -> action: String, event_index: int, event_type: int
+#	var display_event: InputEvent = get_event_from_action(action, event_index, event_type)
 	var custom_label: String = ""
 	
 	if display_event is InputEventKey:
@@ -109,9 +105,9 @@ func get_event_display(action: String, event_index: int, event_type: int) -> Str
 	return ""
 
 
-func get_event_from_action(action: String, event_index: int, event_type: int):
+func get_event_from_action(action: String, event_index: int, event_type: int) -> InputEvent:
 	var action_events: Array[InputEvent] = InputMap.action_get_events(action)
-	var current_index = 0
+	var current_index: int = 0
 	
 	for event in action_events:
 		if event_is_type(event, event_type):
