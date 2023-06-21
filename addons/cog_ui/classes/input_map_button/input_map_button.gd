@@ -4,11 +4,10 @@ extends Button
 
 @export var action: String
 @export var event_index: int = 0
-@export_enum("KBM", 'JOYPAD') var event_group: int
-@export var handling_assigns: bool = true
+@export_enum("Default", "Signal") var assign_behaviour: int
 
-@export var cancel_edit_action: String = "ui_cancel"
-@export var clear_event_action: String = "ui_text_backspace"
+@export var cancel_assign_key: String = "ui_cancel"
+@export var clear_event_key: String = "ui_text_backspace"
 
 const INPUT_REQUEST: String = "Press any key"
 
@@ -16,6 +15,10 @@ var event: InputEvent = null
 var event_display: String = ""
 var waiting_for_assign: bool = false
 
+enum BEHAVIOUR {
+	"Default",
+	"Signal"
+}
 
 func _ready():
 	pressed.connect(_on_pressed)
@@ -78,6 +81,6 @@ func _on_edit_completed(signal_action: String) -> void:
 
 func _on_pressed() -> void:
 	InputMapManager.edit_requested.emit()
-	if handling_assigns:
+	if assign_behaviour == :
 		waiting_for_assign = true
 		display_request()
