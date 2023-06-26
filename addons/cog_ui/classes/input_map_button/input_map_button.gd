@@ -16,8 +16,8 @@ var event_display: String = ""
 var waiting_for_assign: bool = false
 
 enum BEHAVIOUR {
-	"Default",
-	"Signal"
+	DEFAULT,
+	SIGNAL
 }
 
 func _ready():
