@@ -5,12 +5,9 @@ signal bus_layout_changed
 signal bus_layout_loaded
 signal bus_layout_saved
 
-const USER_PATH: String = "user://user_bus_layout.tres"
-const DEFAULT_PATH: String = "res://default_bus_layout.tres"
-
 
 func _ready():
-	var file_exists: bool = ResourceLoader.exists(USER_PATH)
+	var file_exists: bool = ResourceLoader.exists(CogPaths.BUS_LAYOUT_USER_PATH)
 	
 	if file_exists:
 		load_user_bus_layout()
@@ -19,16 +16,16 @@ func _ready():
 
 
 func load_default_bus_layout() -> void:
-	_load_bus_layout(DEFAULT_PATH)
+	_load_bus_layout(CogPaths.BUS_LAYOUT_DEFAULT_PATH)
 
 
 func load_user_bus_layout() -> void:
-	_load_bus_layout(USER_PATH)
+	_load_bus_layout(CogPaths.BUS_LAYOUT_USER_PATH)
 
 
 func save_user_bus_layout() -> void:
 	var bus_layout: AudioBusLayout = AudioServer.generate_bus_layout()
-	ResourceSaver.save(bus_layout, USER_PATH)
+	ResourceSaver.save(bus_layout, CogPaths.BUS_LAYOUT_USER_PATH)
 	bus_layout_saved.emit()
 
 

@@ -8,12 +8,11 @@ signal edit_completed
 
 @export var key_labels: KeyLabels
 @export var mouse_button_labels: MouseButtonLabels
-
-const USER_INPUT_MAP_PATH: String = "user://user_input_map.tres"
+@export var is_assign_inline: bool
 
 
 func _ready():
-	var file_exists: bool = ResourceLoader.exists(USER_INPUT_MAP_PATH)
+	var file_exists: bool = ResourceLoader.exists(CogPaths.USER_INPUT_MAP_PATH)
 	
 	if file_exists:
 		load_user_input_map()
@@ -131,11 +130,11 @@ func load_default_input_map() -> void:
 
 func save_user_input_map() -> void:
 	var input_resource: InputMapResource = InputMapResource.new()
-	ResourceSaver.save(input_resource, USER_INPUT_MAP_PATH)
+	ResourceSaver.save(input_resource, CogPaths.USER_INPUT_MAP_PATH)
 
 
 func load_user_input_map() -> void:
-	var resource: InputMapResource = ResourceLoader.load(USER_INPUT_MAP_PATH)
+	var resource: InputMapResource = ResourceLoader.load(CogPaths.USER_INPUT_MAP_PATH)
 	var user_map: Dictionary = resource.input_map
 	var game_map: Array[StringName] = InputMap.get_actions()
 	

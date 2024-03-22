@@ -4,3 +4,4 @@
 
 [node name="input_map_manager" type="Node"]
 script = ExtResource("1_ab52g")
+is_assign_inline = true

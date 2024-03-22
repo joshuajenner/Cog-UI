@@ -24,7 +24,7 @@ func _ready():
 	pressed.connect(_on_pressed)
 	InputMapManager.edit_completed.connect(_on_edit_completed)
 	
-	event = InputMapManager.get_event_from_action(action, event_index, event_group)
+	event = InputMapManager.get_event_from_action(action, event_index, InputMapManager.EVENT_GROUP.KBM)
 	event_display = InputMapManager.get_event_display(event)
 	
 	display_event()
@@ -81,6 +81,6 @@ func _on_edit_completed(signal_action: String) -> void:
 
 func _on_pressed() -> void:
 	InputMapManager.edit_requested.emit()
-	if assign_behaviour == :
+	if assign_behaviour == BEHAVIOUR.SIGNAL:
 		waiting_for_assign = true
 		display_request()
