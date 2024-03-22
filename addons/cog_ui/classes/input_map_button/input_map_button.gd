@@ -15,6 +15,7 @@ var event: InputEvent = null
 var event_display: String = ""
 var waiting_for_assign: bool = false
 
+
 enum BEHAVIOUR {
 	DEFAULT,
 	SIGNAL
@@ -49,17 +50,17 @@ func get_event_display(event: InputEvent) -> String:
 
 
 func _input(event: InputEvent) -> void:
-	if handling_assigns and waiting_for_assign:
-		if event.is_action_pressed(cancel_edit_action):
+	if InputMapManager.is_handling_assigns and waiting_for_assign:
+		if event.is_action_pressed(cancel_assign_key):
 			waiting_for_assign = false
 			InputMapManager.edit_canceled.emit(action)
 			display_event()
-		elif event.is_action_pressed(clear_event_action):
-			InputMapManager.unassign_event(action, event_index, event_group)
+		elif event.is_action_pressed(clear_event_key):
+			InputMapManager.unassign_event(action, event_index, InputMapManager.EVENT_GROUP.KBM)
 			waiting_for_assign = false
 			display_event()
 		elif event.is_pressed():
-			InputMapManager.assign_event(action, event, event_index, event_group)
+			InputMapManager.assign_event(action, event, event_index, InputMapManager.EVENT_GROUP.KBM)
 			waiting_for_assign = false
 			get_viewport().set_input_as_handled()
 
@@ -74,7 +75,7 @@ func display_request() -> void:
 
 func _on_edit_completed(signal_action: String) -> void:
 	if action == signal_action:
-		event = InputMapManager.get_event_from_action(action, event_index, event_group)
+		event = InputMapManager.get_event_from_action(action, event_index, InputMapManager.EVENT_GROUP.KBM)
 		event_display = InputMapManager.get_event_display(event)
 		display_event()
 

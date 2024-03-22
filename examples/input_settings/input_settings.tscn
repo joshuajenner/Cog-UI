@@ -111,11 +111,6 @@ size_flags_horizontal = 8
 text = "move_up"
 script = ExtResource("2_4yjjg")
 action = "move_up"
-event_index = null
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveUp"]
 custom_minimum_size = Vector2(150, 0)
@@ -125,10 +120,6 @@ text = "move_up"
 script = ExtResource("2_4yjjg")
 action = "move_up"
 event_index = 1
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton3" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveUp"]
 custom_minimum_size = Vector2(150, 0)
@@ -138,10 +129,6 @@ text = "move_up"
 script = ExtResource("2_4yjjg")
 action = "move_up"
 event_index = 2
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="MoveRight" type="HBoxContainer" parent="Margin/VBox/InputMap/Margin/VBox"]
 layout_mode = 2
@@ -162,11 +149,6 @@ size_flags_horizontal = 8
 text = "move_right"
 script = ExtResource("2_4yjjg")
 action = "move_right"
-event_index = null
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveRight"]
 custom_minimum_size = Vector2(150, 0)
@@ -176,10 +158,6 @@ text = "move_right"
 script = ExtResource("2_4yjjg")
 action = "move_right"
 event_index = 1
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton3" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveRight"]
 custom_minimum_size = Vector2(150, 0)
@@ -189,10 +167,6 @@ text = "move_right"
 script = ExtResource("2_4yjjg")
 action = "move_right"
 event_index = 2
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="MoveDown" type="HBoxContainer" parent="Margin/VBox/InputMap/Margin/VBox"]
 layout_mode = 2
@@ -212,11 +186,6 @@ size_flags_horizontal = 8
 text = "move_down"
 script = ExtResource("2_4yjjg")
 action = "move_down"
-event_index = null
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveDown"]
 custom_minimum_size = Vector2(150, 0)
@@ -226,10 +195,6 @@ text = "move_down"
 script = ExtResource("2_4yjjg")
 action = "move_down"
 event_index = 1
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton3" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveDown"]
 custom_minimum_size = Vector2(150, 0)
@@ -239,10 +204,6 @@ text = "move_down"
 script = ExtResource("2_4yjjg")
 action = "move_down"
 event_index = 2
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="MoveLeft" type="HBoxContainer" parent="Margin/VBox/InputMap/Margin/VBox"]
 layout_mode = 2
@@ -263,11 +224,6 @@ size_flags_horizontal = 8
 text = "move_left"
 script = ExtResource("2_4yjjg")
 action = "move_left"
-event_index = null
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveLeft"]
 custom_minimum_size = Vector2(150, 0)
@@ -277,10 +233,6 @@ text = "move_left"
 script = ExtResource("2_4yjjg")
 action = "move_left"
 event_index = 1
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton3" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/MoveLeft"]
 custom_minimum_size = Vector2(150, 0)
@@ -290,10 +242,6 @@ text = "move_left"
 script = ExtResource("2_4yjjg")
 action = "move_left"
 event_index = 2
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="Jump" type="HBoxContainer" parent="Margin/VBox/InputMap/Margin/VBox"]
 layout_mode = 2
@@ -313,11 +261,6 @@ size_flags_horizontal = 8
 text = "jump"
 script = ExtResource("2_4yjjg")
 action = "jump"
-event_index = null
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton2" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/Jump"]
 custom_minimum_size = Vector2(150, 0)
@@ -327,10 +270,6 @@ text = "jump"
 script = ExtResource("2_4yjjg")
 action = "jump"
 event_index = 1
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="InputMapButton3" type="Button" parent="Margin/VBox/InputMap/Margin/VBox/Jump"]
 custom_minimum_size = Vector2(150, 0)
@@ -340,10 +279,6 @@ text = "jump"
 script = ExtResource("2_4yjjg")
 action = "jump"
 event_index = 2
-event_group = null
-handling_assigns = null
-cancel_edit_action = null
-clear_event_action = null
 
 [node name="BottomBar" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
