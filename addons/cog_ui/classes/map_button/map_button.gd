@@ -2,9 +2,11 @@ class_name MapButton
 extends Button
 
 
+enum EVENT_TYPE {KMN, JOYPAD}
+
 @export var action: String
 @export var event_index: int = 0
-@export_enum("KBM", 'JOYPAD') var event_group: int
+@export var type: EVENT_TYPE
 @export var handling_assigns: bool = true
 
 @export var cancel_assign_action: String = "ui_cancel"
@@ -24,7 +26,7 @@ func _ready():
 
 
 func display_event_from_action() -> void:
-	event_display = InputMapManager.get_event_display(action, event_index, InputMapManager.EVENT_GROUP.KBM)
+	#event_display = InputMapManager.get_event_display()
 	text = event_display
 
 
@@ -46,11 +48,11 @@ func _input(event: InputEvent) -> void:
 			waiting_for_assign = false
 			display_event()
 		elif event.is_action_pressed(clear_event_action):
-			InputMapManager.unassign_event(action, event_index, event_group)
+			InputMapManager.unassign_event(action, event_index)
 			waiting_for_assign = false
 			display_event()
 		else:
-			InputMapManager.assign_event(action, event, event_index, event_group)
+			InputMapManager.assign_event(action, event, event_index)
 			waiting_for_assign = false
 
 
@@ -64,7 +66,7 @@ func display_request() -> void:
 
 func _on_assign_completed(signal_action: String) -> void:
 	if action == signal_action:
-		event_display = InputMapManager.get_event_display(action, event_index, InputMapManager.EVENT_GROUP.KBM)
+		#event_display = InputMapManager.get_event_display(action)
 		display_event()
 
 

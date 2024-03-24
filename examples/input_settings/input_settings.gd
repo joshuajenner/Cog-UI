@@ -1,25 +1,24 @@
 extends Control
 
 
-@onready var unbind = %Unbind
-@onready var cancel_bind = %CancelBind
-
-
 func _ready():
 	InputMapManager.edit_completed.connect(_on_edit_completed)
 	InputMapManager.edit_requested.connect(_on_edit_requested)
 	InputMapManager.edit_canceled.connect(_on_edit_completed)
-	_show_instructions(false)
+
 
 
 func _on_edit_requested():
-	_show_instructions(true)
+	pass
 
 
 func _on_edit_completed(_action):
-	_show_instructions(false)
+	pass
 
 
-func _show_instructions(shown: bool) -> void:
-	unbind.visible = shown
-	cancel_bind.visible = shown
+func _on_save_pressed():
+	InputMapManager.save_user_input_map()
+
+
+func _on_reset_pressed():
+	InputMapManager.load_user_input_map()
