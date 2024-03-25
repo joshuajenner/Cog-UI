@@ -2,9 +2,12 @@
 class_name VolumeSlider
 extends Slider
 
+## Attach to an HSlider or VSlider to automatically adjust the volume of 
+## the selected Audio Bus on drag.
 
 const WARNING: String = "This Volume Slider does not have a valid Audio Bus."
 
+## Select which Audio Bus to edit.
 var audio_bus: String:
 	set = _on_audio_bus_changed
 

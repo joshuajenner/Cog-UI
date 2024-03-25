@@ -53,12 +53,4 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="BottomBar" type="HBoxContainer" parent="Margin/VBox"]
-layout_mode = 2
-alignment = 2
-
-[node name="Button" type="Button" parent="Margin/VBox/BottomBar"]
-layout_mode = 2
-text = "Save"
-
 [connection signal="pressed" from="Margin/VBox/TopBar/Back" to="." method="_on_back_pressed"]

@@ -7,7 +7,6 @@ func _ready():
 	InputMapManager.edit_canceled.connect(_on_edit_completed)
 
 
-
 func _on_edit_requested():
 	pass
 
