@@ -51,6 +51,7 @@ vertical_alignment = 1
 
 [node name="Margin" type="MarginContainer" parent="VBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -201,3 +202,11 @@ text = "jump"
 script = ExtResource("2_4yjjg")
 action = "jump"
 event_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBox/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Reset"
