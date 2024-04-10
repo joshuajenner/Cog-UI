@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 
 func _on_settings_pressed():

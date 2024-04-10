@@ -1,56 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb1ywn5rm4e50"]
+[gd_scene load_steps=6 format=3 uid="uid://cb1ywn5rm4e50"]
 
 [ext_resource type="Script" path="res://examples/settings/settings.gd" id="1_0gxhq"]
 [ext_resource type="PackedScene" uid="uid://bfwmirr5h7atu" path="res://examples/volume_settings/volume_settings.tscn" id="1_347j2"]
+[ext_resource type="Theme" uid="uid://1aq71l008ucc" path="res://examples/theme/default_theme.tres" id="1_pkai2"]
 [ext_resource type="PackedScene" uid="uid://cih110b4ptxyg" path="res://examples/input_settings/input_settings.tscn" id="2_ylp7y"]
+[ext_resource type="Texture2D" uid="uid://dicm4n2p7chyw" path="res://examples/assets/textures/kbm/keyboard_0.png" id="4_1ftbk"]
 
-[node name="Settings" type="Control"]
-layout_mode = 3
+[node name="Settings" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0gxhq")
-
-[node name="Margin" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("1_pkai2")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
+script = ExtResource("1_0gxhq")
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TopBar" type="HBoxContainer" parent="Margin/VBox"]
+[node name="TopBar" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
 alignment = 2
 
-[node name="Label" type="Label" parent="Margin/VBox/TopBar"]
+[node name="Label" type="Label" parent="VBox/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
 
-[node name="Back" type="Button" parent="Margin/VBox/TopBar"]
-layout_mode = 2
-text = "Back"
-
-[node name="Main" type="TabContainer" parent="Margin/VBox"]
+[node name="Main" type="TabContainer" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Audio" parent="Margin/VBox/Main" instance=ExtResource("1_347j2")]
+[node name="Audio" parent="VBox/Main" instance=ExtResource("1_347j2")]
 layout_mode = 2
 
-[node name="Controls" parent="Margin/VBox/Main" instance=ExtResource("2_ylp7y")]
+[node name="Controls" parent="VBox/Main" instance=ExtResource("2_ylp7y")]
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="Margin/VBox/TopBar/Back" to="." method="_on_back_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="VBox/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Back"
+icon = ExtResource("4_1ftbk")
+alignment = 0
+
+[connection signal="pressed" from="VBox/HBoxContainer/Button" to="." method="_on_back_pressed"]

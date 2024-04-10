@@ -21,6 +21,11 @@ AudioBusManager="*res://addons/cog_ui/autoloads/cog_audio.gd"
 InputMapManager="*res://addons/cog_ui/autoloads/cog_controls.tscn"
 Cog="*res://addons/cog_ui/autoloads/cog.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/cog_ui/plugin.cfg")
