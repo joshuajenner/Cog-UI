@@ -17,8 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioBusManager="*res://addons/cog_ui/autoloads/cog_audio.gd"
-InputMapManager="*res://addons/cog_ui/autoloads/cog_controls.tscn"
 Cog="*res://addons/cog_ui/autoloads/cog.tscn"
 
 [display]

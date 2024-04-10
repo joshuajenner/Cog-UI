@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://8pxv2p6vw3rg"]
-
-[ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog_controls.gd" id="1_2bqfw"]
-
-[node name="Controls" type="Node"]
-script = ExtResource("1_2bqfw")

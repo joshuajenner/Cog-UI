@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://8si2wlxupqxq"]
+[gd_scene load_steps=4 format=3 uid="uid://bqxxmpl7o8q4k"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog.gd" id="1_3yrkm"]
 [ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog_audio.gd" id="2_tx5cb"]
-[ext_resource type="PackedScene" uid="uid://8pxv2p6vw3rg" path="res://addons/cog_ui/autoloads/cog_controls.tscn" id="3_k15if"]
+[ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog_controls.gd" id="3_rt1gx"]
 
 [node name="Cog" type="Node"]
 script = ExtResource("1_3yrkm")
@@ -10,4 +10,5 @@ script = ExtResource("1_3yrkm")
 [node name="Audio" type="Node" parent="."]
 script = ExtResource("2_tx5cb")
 
-[node name="Controls" parent="." instance=ExtResource("3_k15if")]
+[node name="Controls" type="Node" parent="."]
+script = ExtResource("3_rt1gx")
