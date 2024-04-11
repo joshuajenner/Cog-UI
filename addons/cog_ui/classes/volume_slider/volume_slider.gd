@@ -18,7 +18,7 @@ func _ready() -> void:
 	_set_bus_index()
 	assert(_bus_index != -1, WARNING);
 	
-	AudioBusManager.bus_layout_loaded.connect(_set_volume_from_bus)
+	Cog.audio.loaded.connect(_set_volume_from_bus)
 	drag_ended.connect(_on_drag_ended)
 	_setup_slider()
 	_set_volume_from_bus()
@@ -42,7 +42,7 @@ func _set_volume_from_bus() -> void:
 func _on_drag_ended(_value_changed) -> void:
 	var new_volume: float = linear_to_db(value)
 	AudioServer.set_bus_volume_db(_bus_index, new_volume)
-	AudioBusManager.bus_layout_changed.emit()
+	Cog.audio.changed.emit()
 
 
 func _on_audio_bus_changed(value) -> void:

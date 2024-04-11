@@ -1,13 +1,15 @@
 extends Node
 
-var audio: CogAudio = $Audio
-var controls: CogControls = $Controls
+
+var audio: CogAudio
+var controls: CogControls
 
 var are_changes_pending: bool = false
 
 
 func _ready():
-	pass
+	audio = $Audio
+	controls = $Controls
 
 
 func save_all():

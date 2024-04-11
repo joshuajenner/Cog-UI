@@ -10,6 +10,8 @@ signal duplicate_event
 
 @export var key_labels: KeyLabels
 @export var mouse_button_labels: MouseButtonLabels
+@export var key_icons: KeyIcons
+@export var mouse_button_icons: MouseButtonIcons
 @export var is_assign_inline: bool = true
 @export var cancel_assign_action: String = "ui_cancel"
 @export var clear_event_action: String = "ui_text_backspace"
@@ -23,6 +25,14 @@ func _ready():
 		load_user_input_map()
 	else:
 		save_user_input_map()
+
+
+# TODO Joypad Support
+#func _input(event):
+	#if event is InputEventKey or event is InputEventMouse:
+		#pass
+	#elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		#pass
 
 
 func assign_event(action: String, new_event: InputEvent, new_event_index: int) -> void:
@@ -42,6 +52,7 @@ func assign_event(action: String, new_event: InputEvent, new_event_index: int) -
 	
 	if _other_action_has_event(action, new_event):
 		duplicate_event.emit(action)
+		print("Duplicate Event Detected")
 	
 	edit_completed.emit(action)
 
@@ -56,15 +67,6 @@ func unassign_event(action: String, event_index: int) -> void:
 		index += 1
 	
 	edit_completed.emit(action)
-
-
-func _other_action_has_event(original_action: String, check_event: InputEvent) -> bool:
-	for action in InputMap.get_actions():
-		if action != original_action:
-			if InputMap.action_has_event(action, check_event):
-				return true
-	
-	return false
 
 
 func get_event_display(action: String, event_index: int) -> String:
@@ -92,6 +94,19 @@ func get_event_display(action: String, event_index: int) -> String:
 	return ""
 
 
+func get_event_icon(action: String, event_index:int) -> Texture2D:
+	var event = _get_event_from_action(action, event_index)
+	var custom_icon: Texture2D
+	
+	if event is InputEventKey:
+		var event_keycode: int = event.physical_keycode if event.physical_keycode != 0 else event.keycode
+		custom_icon = _get_key_icon(event_keycode)
+	elif event is InputEventMouseButton:
+		custom_icon = _get_mouse_icon(event.button_index)
+	
+	return custom_icon
+
+
 func _get_event_from_action(action: String, event_index: int) -> InputEvent:
 	var action_events: Array[InputEvent] = InputMap.action_get_events(action)
 	var current_index: int = 0
@@ -103,6 +118,20 @@ func _get_event_from_action(action: String, event_index: int) -> InputEvent:
 			current_index += 1
 	
 	return null
+
+
+func _get_key_icon(keycode: int) -> Texture2D:
+	if key_icons != null:
+		return key_icons.get_icon(keycode)
+	else:
+		return null
+
+
+func _get_mouse_icon(mouse_index: int) -> Texture2D:
+	if mouse_button_icons != null:
+		return mouse_button_icons.get_icon(mouse_index)
+	else:
+		return null
 
 
 func _get_key_label(keycode: int) -> String:
@@ -117,6 +146,15 @@ func _get_mouse_label(mouse_index: int) -> String:
 		return mouse_button_labels.get_label(mouse_index)
 	else:
 		return ""
+
+
+func _other_action_has_event(original_action: String, check_event: InputEvent) -> bool:
+	for action in InputMap.get_actions():
+		if action != original_action:
+			if InputMap.action_has_event(action, check_event):
+				return true
+	
+	return false
 
 
 func load_default_input_map() -> void:

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MouseButtonIcons" load_steps=8 format=3 uid="uid://cdonb8js7tipn"]
+
+[ext_resource type="Script" path="res://addons/cog_ui/resources/mouse_button_icons.gd" id="1_8u7dd"]
+[ext_resource type="Texture2D" uid="uid://3431tvv1kexm" path="res://examples/assets/textures/mouse/mouse_left_outline.png" id="1_jbwyy"]
+[ext_resource type="Texture2D" uid="uid://8j0f8geghltp" path="res://examples/assets/textures/mouse/mouse_scroll_outline.png" id="2_yysaw"]
+[ext_resource type="Texture2D" uid="uid://7h5abx34rrye" path="res://examples/assets/textures/mouse/mouse_right_outline.png" id="3_ugiap"]
+[ext_resource type="Texture2D" uid="uid://tbgyt0ro3ad3" path="res://examples/assets/textures/mouse/mouse_scroll_down_outline.png" id="4_h3pym"]
+[ext_resource type="Texture2D" uid="uid://cnvit3kti2ci4" path="res://examples/assets/textures/mouse/mouse_scroll_up_outline.png" id="5_c45cc"]
+[ext_resource type="Texture2D" uid="uid://b36621mi1lmx8" path="res://examples/assets/textures/mouse/mouse_outline.png" id="6_6smkp"]
+
+[resource]
+script = ExtResource("1_8u7dd")
+default = ExtResource("6_6smkp")
+LEFT = ExtResource("1_jbwyy")
+RIGHT = ExtResource("3_ugiap")
+MIDDLE = ExtResource("2_yysaw")
+WHEEL_UP = ExtResource("5_c45cc")
+WHEEL_DOWN = ExtResource("4_h3pym")

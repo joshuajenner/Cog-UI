@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb1ywn5rm4e50"]
+[gd_scene load_steps=8 format=3 uid="uid://cb1ywn5rm4e50"]
 
 [ext_resource type="Script" path="res://examples/settings/settings.gd" id="1_0gxhq"]
 [ext_resource type="PackedScene" uid="uid://bfwmirr5h7atu" path="res://examples/volume_settings/volume_settings.tscn" id="1_347j2"]
 [ext_resource type="Theme" uid="uid://1aq71l008ucc" path="res://examples/theme/default_theme.tres" id="1_pkai2"]
 [ext_resource type="PackedScene" uid="uid://cih110b4ptxyg" path="res://examples/input_settings/input_settings.tscn" id="2_ylp7y"]
-[ext_resource type="Texture2D" uid="uid://dicm4n2p7chyw" path="res://examples/assets/textures/kbm/keyboard_0.png" id="4_1ftbk"]
+[ext_resource type="Script" path="res://addons/cog_ui/classes/action_texture_rect/action_texture_rect.gd" id="3_74riw"]
+[ext_resource type="Texture2D" uid="uid://ciudcpglj42px" path="res://examples/assets/textures/kb/generic_button_square_fill.png" id="6_ah4iy"]
+[ext_resource type="Script" path="res://addons/cog_ui/classes/action_button/action_button.gd" id="6_jytt7"]
 
 [node name="Settings" type="MarginContainer"]
 anchors_preset = 15
@@ -25,33 +27,66 @@ theme_override_constants/separation = 20
 
 [node name="TopBar" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
-alignment = 2
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBox/TopBar"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Main" type="TabContainer" parent="VBox"]
+[node name="HBox" type="HBoxContainer" parent="VBox/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBox/TopBar/HBox"]
+layout_mode = 2
+texture = ExtResource("6_ah4iy")
+script = ExtResource("3_74riw")
+action = "ui_prev_section"
+
+[node name="Button" type="Button" parent="VBox/TopBar/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Audio"
+
+[node name="Button2" type="Button" parent="VBox/TopBar/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Controls"
+
+[node name="TextureRect2" type="TextureRect" parent="VBox/TopBar/HBox"]
+layout_mode = 2
+texture = ExtResource("6_ah4iy")
+script = ExtResource("3_74riw")
+action = "ui_next_section"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Audio" parent="VBox/Main" instance=ExtResource("1_347j2")]
+[node name="MarginContainer" type="MarginContainer" parent="VBox/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Audio" parent="VBox/PanelContainer/MarginContainer" instance=ExtResource("1_347j2")]
 layout_mode = 2
 
-[node name="Controls" parent="VBox/Main" instance=ExtResource("2_ylp7y")]
+[node name="Controls" parent="VBox/PanelContainer/MarginContainer" instance=ExtResource("2_ylp7y")]
 visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 2
 
-[node name="Button" type="Button" parent="VBox/HBoxContainer"]
+[node name="Button2" type="Button" parent="VBox/HBoxContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Back"
-icon = ExtResource("4_1ftbk")
 alignment = 0
+script = ExtResource("6_jytt7")
+action = "ui_cancel"
 
-[connection signal="pressed" from="VBox/HBoxContainer/Button" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBox/HBoxContainer/Button2" to="." method="_on_back_pressed"]

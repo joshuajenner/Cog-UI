@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfwmirr5h7atu"]
+[gd_scene load_steps=3 format=3 uid="uid://bfwmirr5h7atu"]
 
+[ext_resource type="Theme" uid="uid://1aq71l008ucc" path="res://examples/theme/default_theme.tres" id="1_1drqa"]
 [ext_resource type="Script" path="res://addons/cog_ui/classes/volume_slider/volume_slider.gd" id="1_cab26"]
 
 [node name="AudioSettings" type="MarginContainer"]
@@ -8,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1drqa")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
