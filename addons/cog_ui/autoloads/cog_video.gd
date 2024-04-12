@@ -47,6 +47,7 @@ func apply_is_fullscreen(value: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		apply_resolution(resolution)
 
 
 func apply_resolution(value: Vector2i) -> void:
