@@ -8,7 +8,7 @@ const CHAT_MESSAGE = preload("res://examples/chat/chat_message.tscn")
 @onready var scroll_box = %ScrollBox
 @onready var message_panel = %MessagePanel
 
-var max_scroll: int
+var max_scroll: float
 var scroll_bar: ScrollBar
 
 func _ready():

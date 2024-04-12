@@ -203,3 +203,59 @@ text = "jump"
 script = ExtResource("2_4yjjg")
 action = "jump"
 event_index = 1
+
+[node name="Next Section" type="HBoxContainer" parent="VBox/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="VBox/Margin/VBox/Next Section"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "UI Next Section"
+vertical_alignment = 1
+
+[node name="InputMapButton" type="Button" parent="VBox/Margin/VBox/Next Section"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "ui_next"
+script = ExtResource("2_4yjjg")
+action = "ui_next_section"
+
+[node name="InputMapButton2" type="Button" parent="VBox/Margin/VBox/Next Section"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "ui_next"
+script = ExtResource("2_4yjjg")
+action = "ui_next_section"
+event_index = 1
+
+[node name="Prev Section" type="HBoxContainer" parent="VBox/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="VBox/Margin/VBox/Prev Section"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "UI Prev Section"
+vertical_alignment = 1
+
+[node name="InputMapButton" type="Button" parent="VBox/Margin/VBox/Prev Section"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "ui_prev"
+script = ExtResource("2_4yjjg")
+action = "ui_prev_section"
+
+[node name="InputMapButton2" type="Button" parent="VBox/Margin/VBox/Prev Section"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "ui_prev"
+script = ExtResource("2_4yjjg")
+action = "ui_prev_section"
+event_index = 1
