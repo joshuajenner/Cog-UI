@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb1ywn5rm4e50"]
+[gd_scene load_steps=9 format=3 uid="uid://cb1ywn5rm4e50"]
 
 [ext_resource type="Script" path="res://examples/settings/settings.gd" id="1_0gxhq"]
 [ext_resource type="PackedScene" uid="uid://bfwmirr5h7atu" path="res://examples/volume_settings/volume_settings.tscn" id="1_347j2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/cog_ui/classes/action_texture_rect/action_texture_rect.gd" id="3_74riw"]
 [ext_resource type="Texture2D" uid="uid://ciudcpglj42px" path="res://examples/assets/textures/kb/generic_button_square_fill.png" id="6_ah4iy"]
 [ext_resource type="Script" path="res://addons/cog_ui/classes/action_button/action_button.gd" id="6_jytt7"]
+[ext_resource type="PackedScene" uid="uid://mdt5ekvsxmeu" path="res://examples/video_settings/video_settings.tscn" id="7_50eha"]
 
 [node name="Settings" type="MarginContainer"]
 anchors_preset = 15
@@ -45,13 +46,21 @@ texture = ExtResource("6_ah4iy")
 script = ExtResource("3_74riw")
 action = "ui_prev_section"
 
-[node name="AudioTab" type="Button" parent="VBox/TopBar/HBox"]
+[node name="VideoTab" type="Button" parent="VBox/TopBar/HBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_mode = 0
 toggle_mode = true
 button_pressed = true
+text = "Video"
+
+[node name="AudioTab" type="Button" parent="VBox/TopBar/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
 text = "Audio"
 
 [node name="ControlTab" type="Button" parent="VBox/TopBar/HBox"]
@@ -76,8 +85,13 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="VideoSection" parent="VBox/PanelContainer/MarginContainer" instance=ExtResource("7_50eha")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="AudioSection" parent="VBox/PanelContainer/MarginContainer" instance=ExtResource("1_347j2")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="ControlsSection" parent="VBox/PanelContainer/MarginContainer" instance=ExtResource("2_ylp7y")]
@@ -98,4 +112,7 @@ alignment = 0
 script = ExtResource("6_jytt7")
 action = "ui_cancel"
 
+[connection signal="pressed" from="VBox/TopBar/HBox/VideoTab" to="." method="_on_tab_selected" binds= [0]]
+[connection signal="pressed" from="VBox/TopBar/HBox/AudioTab" to="." method="_on_tab_selected" binds= [1]]
+[connection signal="pressed" from="VBox/TopBar/HBox/ControlTab" to="." method="_on_tab_selected" binds= [2]]
 [connection signal="pressed" from="VBox/HBoxContainer/Button2" to="." method="_on_back_pressed"]

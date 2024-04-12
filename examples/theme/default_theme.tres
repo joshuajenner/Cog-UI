@@ -3,3 +3,5 @@
 [resource]
 Button/font_sizes/font_size = 24
 Label/font_sizes/font_size = 24
+PopupMenu/font_sizes/font_separator_size = 24
+PopupMenu/font_sizes/font_size = 24
