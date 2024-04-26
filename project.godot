@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Cog="*res://addons/cog_ui/autoloads/cog.tscn"
 CogInputAuto="*res://addons/cog_ui/autoloads/cog_input.gd"
+CogAudioAuto="*res://addons/cog_ui/autoloads/cog_audio_cfg.gd"
 
 [display]
 

@@ -5,6 +5,8 @@ class_name CogPaths
 const BUS_LAYOUT_USER_PATH: String = "user://user_bus_layout.tres"
 const BUS_LAYOUT_DEFAULT_PATH: String = "res://default_bus_layout.tres"
 
+const BUS_LAYOUT_USER_CONFIG_PATH: String = "user://user_bus_layout.cfg"
+
 const USER_INPUT_MAP_PATH: String = "user://user_input_map.tres"
 const USER_INPUT_CONFIG_PATH: String = "user://user_input_map.cfg"
 
