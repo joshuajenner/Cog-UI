@@ -19,11 +19,13 @@ func init():
 func get_resolution() -> Vector2i:
 	return resolution
 
+
 func get_resolution_index() -> int:
 	for i in resolutions.size():
 		if resolution == resolutions[i]:
 			return i
 	return -1
+
 
 func get_resolutions() -> Array[Vector2i]:
 	return resolutions
@@ -54,5 +56,10 @@ func apply_resolution(value: Vector2i) -> void:
 	resolution = value
 	get_window().size = value
 
+
 func apply_resolution_by_index(index: int) -> void:
 	apply_resolution(resolutions[index])
+
+
+func maximize_window() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)

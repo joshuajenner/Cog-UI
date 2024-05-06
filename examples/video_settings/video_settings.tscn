@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mdt5ekvsxmeu"]
+[gd_scene load_steps=4 format=3 uid="uid://mdt5ekvsxmeu"]
 
 [ext_resource type="Script" path="res://addons/cog_ui/classes/resolution_select/resolution_select.gd" id="1_i81y4"]
 [ext_resource type="Script" path="res://addons/cog_ui/classes/window_mode_select/window_mode_select.gd" id="1_s1ssa"]
+[ext_resource type="Script" path="res://examples/video_settings/maximize_window.gd" id="3_rij1k"]
 
 [node name="VideoSettings" type="MarginContainer"]
 anchors_preset = 15
@@ -43,3 +44,16 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 fit_to_longest_item = false
 script = ExtResource("1_i81y4")
+
+[node name="Maximize" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Maximize"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Maximize"
+
+[node name="Button" type="Button" parent="VBoxContainer/Maximize"]
+layout_mode = 2
+text = "Maximize"
+script = ExtResource("3_rij1k")
