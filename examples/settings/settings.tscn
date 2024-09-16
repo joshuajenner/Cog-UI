@@ -43,6 +43,7 @@ theme_override_constants/separation = 10
 [node name="TextureRect" type="TextureRect" parent="VBox/TopBar/HBox"]
 layout_mode = 2
 texture = ExtResource("6_ah4iy")
+expand_mode = 3
 script = ExtResource("3_74riw")
 action = "ui_prev_section"
 
@@ -74,6 +75,7 @@ text = "Control"
 [node name="TextureRect2" type="TextureRect" parent="VBox/TopBar/HBox"]
 layout_mode = 2
 texture = ExtResource("6_ah4iy")
+expand_mode = 3
 script = ExtResource("3_74riw")
 action = "ui_next_section"
 
@@ -108,7 +110,7 @@ alignment = 2
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Back"
-alignment = 0
+expand_icon = true
 script = ExtResource("6_jytt7")
 action = "ui_cancel"
 
