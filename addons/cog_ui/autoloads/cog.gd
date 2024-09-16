@@ -19,5 +19,3 @@ func _ready():
 
 func save_all():
 	pass
-
-

@@ -20,6 +20,5 @@ mouse_button_icons = ExtResource("4_415fg")
 
 [node name="Video" type="Node" parent="."]
 script = ExtResource("6_t5tc0")
-is_fullscreen = null
 resolution = Vector2i(1280, 720)
 resolutions = Array[Vector2i]([Vector2i(2560, 1440), Vector2i(1920, 1080), Vector2i(1366, 768), Vector2i(1280, 720)])

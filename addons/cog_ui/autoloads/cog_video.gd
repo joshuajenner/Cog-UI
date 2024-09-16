@@ -54,7 +54,9 @@ func apply_is_fullscreen(value: bool) -> void:
 
 func apply_resolution(value: Vector2i) -> void:
 	resolution = value
-	get_window().size = value
+	var window: Window = get_window()
+	window.size = value
+	window.move_to_center()
 
 
 func apply_resolution_by_index(index: int) -> void:
