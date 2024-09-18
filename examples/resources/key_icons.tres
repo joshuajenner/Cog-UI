@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="KeyIcons" load_steps=53 format=3 uid="uid://cbnb22l23xcar"]
 
-[ext_resource type="Script" path="res://addons/cog_ui/resources/key_icons.gd" id="1_ahxtm"]
+[ext_resource type="Script" path="res://addons/cog/resources/key_icons.gd" id="1_ahxtm"]
 [ext_resource type="Texture2D" uid="uid://dwgognqh5vnv2" path="res://examples/assets/textures/kb/keyboard_a_outline.png" id="1_eogn2"]
 [ext_resource type="Texture2D" uid="uid://bb5n5stmv1wqs" path="res://examples/assets/textures/kb/keyboard_b_outline.png" id="2_4v3u6"]
 [ext_resource type="Texture2D" uid="uid://bg8anix6eqclc" path="res://examples/assets/textures/kb/keyboard_c_outline.png" id="3_bm0oe"]

@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bfwmirr5h7atu" path="res://examples/volume_settings/volume_settings.tscn" id="1_347j2"]
 [ext_resource type="Theme" uid="uid://1aq71l008ucc" path="res://examples/theme/default_theme.tres" id="1_pkai2"]
 [ext_resource type="PackedScene" uid="uid://cih110b4ptxyg" path="res://examples/input_settings/input_settings.tscn" id="2_ylp7y"]
-[ext_resource type="Script" path="res://addons/cog_ui/classes/action_texture_rect/action_texture_rect.gd" id="3_74riw"]
+[ext_resource type="Script" path="res://addons/cog/classes/action_texture_rect/action_texture_rect.gd" id="3_74riw"]
 [ext_resource type="Texture2D" uid="uid://ciudcpglj42px" path="res://examples/assets/textures/kb/generic_button_square_fill.png" id="6_ah4iy"]
-[ext_resource type="Script" path="res://addons/cog_ui/classes/action_button/action_button.gd" id="6_jytt7"]
-[ext_resource type="PackedScene" uid="uid://mdt5ekvsxmeu" path="res://examples/video_settings/video_settings.tscn" id="7_50eha"]
+[ext_resource type="Script" path="res://addons/cog/classes/action_button/action_button.gd" id="6_jytt7"]
+[ext_resource type="PackedScene" uid="uid://mdt5ekvsxmeu" path="res://examples/video_settings/video_settings_menu.tscn" id="7_50eha"]
 
 [node name="Settings" type="MarginContainer"]
 anchors_preset = 15

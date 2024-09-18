@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqxxmpl7o8q4k"]
 
-[ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog.gd" id="1_3yrkm"]
-[ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog_audio.gd" id="2_tx5cb"]
-[ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog_controls.gd" id="3_rt1gx"]
+[ext_resource type="Script" path="res://addons/cog/autoloads/cog.gd" id="1_3yrkm"]
+[ext_resource type="Script" path="res://addons/cog/autoloads/cog_audio.gd" id="2_tx5cb"]
+[ext_resource type="Script" path="res://addons/cog/autoloads/cog_controls.gd" id="3_rt1gx"]
 [ext_resource type="Resource" uid="uid://cdonb8js7tipn" path="res://examples/resources/mouse_icons.tres" id="4_415fg"]
 [ext_resource type="Resource" uid="uid://cbnb22l23xcar" path="res://examples/resources/key_icons.tres" id="4_m2gqe"]
-[ext_resource type="Script" path="res://addons/cog_ui/autoloads/cog_video.gd" id="6_t5tc0"]
+[ext_resource type="Script" path="res://addons/cog/autoloads/cog_video.gd" id="6_t5tc0"]
 
 [node name="Cog" type="Node"]
 script = ExtResource("1_3yrkm")

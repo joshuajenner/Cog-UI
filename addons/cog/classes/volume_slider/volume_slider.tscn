@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3tginov3n25d"]
 
-[ext_resource type="Script" path="res://addons/cog_ui/classes/volume_slider/volume_slider.gd" id="1_ns7dr"]
+[ext_resource type="Script" path="res://addons/cog/classes/volume_slider/volume_slider.gd" id="1_ns7dr"]
 
 [node name="VolumeSlider" type="HSlider"]
 custom_minimum_size = Vector2(500, 0)

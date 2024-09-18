@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MouseButtonLabels" load_steps=2 format=3 uid="uid://djuaqrncvlpgu"]
 
-[ext_resource type="Script" path="res://addons/cog_ui/resources/mouse_button_labels.gd" id="1_irvf0"]
+[ext_resource type="Script" path="res://addons/cog/resources/mouse_button_labels.gd" id="1_irvf0"]
 
 [resource]
 script = ExtResource("1_irvf0")

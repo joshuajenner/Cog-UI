@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InputMapResource" load_steps=102 format=3]
 
-[ext_resource type="Script" path="res://addons/cog_ui/resources/input_map_resource.gd" id="1_7votg"]
+[ext_resource type="Script" path="res://addons/cog/resources/input_map_resource.gd" id="1_7votg"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_j5v7k"]
 keycode = 4194309

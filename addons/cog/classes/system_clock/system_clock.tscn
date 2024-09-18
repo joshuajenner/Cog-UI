@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bx6nls0yf6ebx"]
 
-[ext_resource type="Script" path="res://addons/cog_ui/classes/system_clock/system_clock.gd" id="1_i6u86"]
+[ext_resource type="Script" path="res://addons/cog/classes/system_clock/system_clock.gd" id="1_i6u86"]
 
 [node name="SystemClock" type="Label"]
 anchors_preset = 15

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cih110b4ptxyg"]
 
 [ext_resource type="Theme" uid="uid://1aq71l008ucc" path="res://examples/theme/default_theme.tres" id="1_kq7jx"]
-[ext_resource type="Script" path="res://addons/cog_ui/classes/input_map_button/input_map_button.gd" id="2_4yjjg"]
+[ext_resource type="Script" path="res://addons/cog/classes/input_map_button/input_map_button.gd" id="2_4yjjg"]
 
 [node name="InputSettings" type="MarginContainer"]
 anchors_preset = 15

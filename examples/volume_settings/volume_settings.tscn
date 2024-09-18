@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfwmirr5h7atu"]
 
 [ext_resource type="Theme" uid="uid://1aq71l008ucc" path="res://examples/theme/default_theme.tres" id="1_1drqa"]
-[ext_resource type="Script" path="res://addons/cog_ui/classes/volume_slider/volume_slider.gd" id="1_cab26"]
+[ext_resource type="Script" path="res://addons/cog/classes/volume_slider/volume_slider.gd" id="1_cab26"]
 
 [node name="AudioSettings" type="MarginContainer"]
 anchors_preset = 15
