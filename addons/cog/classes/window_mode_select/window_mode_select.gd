@@ -2,13 +2,14 @@ class_name WindowModeSelect
 extends CheckButton
 
 
-@export var video_settings: VideoSettings
-
-
 func _ready() -> void:
 	toggled.connect(_on_toggled)
-	button_pressed = video_settings.is_fullscreen
+	VideoSettings.settings_loaded.connect(_on_settings_loaded)
 
 
 func _on_toggled(toggled_on: bool) -> void:
-	video_settings.set_is_fullscreen(toggled_on)
+	VideoSettings.set_is_fullscreen(toggled_on)
+
+
+func _on_settings_loaded() -> void:
+	button_pressed = VideoSettings.is_fullscreen

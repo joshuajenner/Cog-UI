@@ -15,6 +15,10 @@ run/main_scene="res://examples/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+VideoSettings="*res://addons/cog/autoloads/video_settings.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -24,7 +28,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/cog/plugin.cfg")
 
 [input]
 

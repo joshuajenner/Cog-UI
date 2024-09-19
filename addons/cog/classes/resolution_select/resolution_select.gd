@@ -2,20 +2,9 @@ class_name ResolutionSelect
 extends OptionButton
 
 
-@export var video_settings: VideoSettings
-
-
 func _ready():
-	setup()
 	item_selected.connect(_on_selected)
-
-
-func setup() -> void:
-	var selected_res: int = video_settings.get_resolution_index()
-	var resolutions: Array[Vector2i] = video_settings.get_resolutions()
-	for res in resolutions:
-		add_item(res_string(res))
-	selected = selected_res
+	VideoSettings.settings_loaded.connect(_on_settings_loaded)
 
 
 func res_string(vec: Vector2i) -> String:
@@ -24,4 +13,12 @@ func res_string(vec: Vector2i) -> String:
 
 
 func _on_selected(index: int) -> void:
-	video_settings.set_resolution_by_index(index)
+	VideoSettings.set_resolution_by_index(index)
+
+
+func _on_settings_loaded() -> void:
+	var selected_res: int = VideoSettings.get_resolution_index()
+	var resolutions: Array[Vector2i] = VideoSettings.get_resolutions()
+	for res in resolutions:
+		add_item(res_string(res))
+	selected = selected_res
