@@ -1,8 +1,8 @@
 # Cog
 
-`Godot 4.0`
+`Godot 4.0+`
 
-A library of custom nodes and scripts that makes creating UI for games easier in the Godot Engine.
+A framework that makes creating common UI/UX functions for games faster in the Godot Engine.
 
 
 ## Installation
@@ -13,8 +13,8 @@ A library of custom nodes and scripts that makes creating UI for games easier in
 
 
 ## Documentation
-- [Nodes](https://github.com/joshuajenner/Cog/wiki/Nodes)
 - [Autoloads](https://github.com/joshuajenner/Cog/wiki/Autoloads)
+- [Classes](https://github.com/joshuajenner/Cog/wiki/Classes)
 - Resources
 
 
