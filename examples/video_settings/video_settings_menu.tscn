@@ -26,10 +26,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Fullscreen"
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/Fullscreen" node_paths=PackedStringArray("video_settings")]
+[node name="CheckButton" type="OptionButton" parent="VBoxContainer/Fullscreen"]
 layout_mode = 2
 script = ExtResource("1_jwc1t")
-video_settings = NodePath("")
 
 [node name="Resolution" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -39,9 +38,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Resolution"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Resolution" node_paths=PackedStringArray("video_settings")]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Resolution"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 fit_to_longest_item = false
 script = ExtResource("2_3h85w")
-video_settings = NodePath("")

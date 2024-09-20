@@ -1,15 +1,15 @@
 class_name WindowModeSelect
-extends CheckButton
+extends OptionButton
 
 
 func _ready() -> void:
-	toggled.connect(_on_toggled)
+	item_selected.connect(_on_selected)
 	VideoSettings.settings_loaded.connect(_on_settings_loaded)
 
 
-func _on_toggled(toggled_on: bool) -> void:
-	VideoSettings.set_is_fullscreen(toggled_on)
+func _on_selected(index: int) -> void:
+	VideoSettings.set_window_mode(index)
 
 
 func _on_settings_loaded() -> void:
-	button_pressed = VideoSettings.is_fullscreen
+	pass
