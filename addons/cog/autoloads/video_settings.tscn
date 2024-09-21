@@ -4,5 +4,4 @@
 
 [node name="VideoSettings" type="Node"]
 script = ExtResource("1_k5svp")
-resolution = Vector2i(1280, 720)
-resolutions = Array[Vector2i]([Vector2i(1920, 1080), Vector2i(1360, 768), Vector2i(1280, 720)])
+_resolution = Vector2i(1360, 768)

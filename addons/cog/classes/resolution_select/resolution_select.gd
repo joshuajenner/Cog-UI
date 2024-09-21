@@ -2,23 +2,42 @@ class_name ResolutionSelect
 extends OptionButton
 
 
+var _resolutions: Array[Vector2i] = [
+	Vector2i(1920, 1080),
+	Vector2i(1360, 768),
+	Vector2i(1280, 720)
+]
+
+
 func _ready():
-	item_selected.connect(_on_selected)
+	item_selected.connect(_on_item_selected)
 	VideoSettings.settings_loaded.connect(_on_settings_loaded)
+	
+	_setup_options()
 
 
-func res_string(vec: Vector2i) -> String:
-	var format: String = "%s x %s"
-	return format % [vec.x, vec.y]
+func _on_item_selected(index: int) -> void:
+	VideoSettings.set_resolution(_resolutions[index])
 
 
-func _on_selected(index: int) -> void:
-	VideoSettings.set_resolution_by_index(index)
+func _setup_options() -> void:
+	for i: int in _resolutions.size():
+		add_item(_res_string(_resolutions[i]))
+	
+	_on_settings_loaded()
 
 
 func _on_settings_loaded() -> void:
-	var selected_res: int = VideoSettings.get_resolution_index()
-	var resolutions: Array[Vector2i] = VideoSettings.get_resolutions()
-	for res in resolutions:
-		add_item(res_string(res))
-	selected = selected_res
+	var selected_resolution: Vector2i = VideoSettings.get_resolution()
+	var selected_index: int = -1
+	
+	for i: int in _resolutions.size():
+		if _resolutions[i] == selected_resolution:
+			selected_index = i
+	
+	selected = selected_index
+
+
+func _res_string(vec: Vector2i) -> String:
+	var format: String = "%s x %s"
+	return format % [vec.x, vec.y]
