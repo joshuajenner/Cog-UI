@@ -29,6 +29,7 @@ func _setup_options() -> void:
 
 func _on_settings_loaded() -> void:
 	var window_mode = VideoSettings.get_window_mode()
+	
 	for i: int in item_count:
 		if get_item_id(i) == window_mode:
 			select(i)
