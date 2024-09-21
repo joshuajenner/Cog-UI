@@ -16,50 +16,50 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_w17ha")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
+[node name="WindowMode" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
+[node name="Label" type="Label" parent="VBox/WindowMode"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Fullscreen"
 
-[node name="CheckButton" type="OptionButton" parent="VBoxContainer/Fullscreen"]
+[node name="WindowModeSelect" type="OptionButton" parent="VBox/WindowMode"]
 layout_mode = 2
 script = ExtResource("1_jwc1t")
 
-[node name="Resolution" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Resolution" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Resolution"]
+[node name="Label" type="Label" parent="VBox/Resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Resolution"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Resolution"]
+[node name="ResolutionSelect" type="OptionButton" parent="VBox/Resolution"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 fit_to_longest_item = false
 script = ExtResource("2_3h85w")
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
 
-[node name="ResetButton" type="Button" parent="VBoxContainer/Buttons"]
+[node name="ResetButton" type="Button" parent="VBox/Buttons"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Reset"
 
-[node name="SaveButton" type="Button" parent="VBoxContainer/Buttons"]
+[node name="SaveButton" type="Button" parent="VBox/Buttons"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Save"
 
-[connection signal="pressed" from="VBoxContainer/Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBox/Buttons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="VBox/Buttons/SaveButton" to="." method="_on_save_button_pressed"]

@@ -2,8 +2,8 @@
 class_name Cog
 extends EditorPlugin
 
-# Edit the paths as needed
 
+# Edit the paths as needed
 const BUS_LAYOUT_USER_PATH: String = "user://user_bus_layout.cfg"
 const BUS_LAYOUT_DEFAULT_PATH: String = "res://default_bus_layout.tres"
 
