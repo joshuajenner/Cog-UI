@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 VideoSettings="*res://addons/cog/autoloads/video_settings.tscn"
+AudioSettings="*res://addons/cog/autoloads/audio_settings.gd"
 
 [display]
 

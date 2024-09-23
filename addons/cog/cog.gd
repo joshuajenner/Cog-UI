@@ -7,10 +7,15 @@ extends EditorPlugin
 const VIDEO_SETTINGS_USER_PATH: String = "user://video_settings_user.cfg"
 const VIDEO_SETTINGS_DEFAULT_PATH: String = "user://video_settings_default.cfg"
 
+const AUDIO_SETTINGS_USER_PATH: String = "user://audio_settings_user.tres"
+const AUDIO_SETTINGS_DEFAULT_PATH: String = "user://default_bus_layout.tres"
+
 
 func _enter_tree():
 	add_autoload_singleton("VideoSettings", "res://addons/cog/autoloads/video_settings.tscn")
+	add_autoload_singleton("AudioSettings", "res://addons/cog/autoloads/audio_settings.gd")
 
 
 func _exit_tree():
 	remove_autoload_singleton("VideoSettings")
+	remove_autoload_singleton("AudioSettings")
