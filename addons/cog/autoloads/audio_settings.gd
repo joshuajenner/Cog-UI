@@ -19,28 +19,6 @@ func _ready() -> void:
 		load_user_settings()
 
 
-func load_user_settings() -> void:
-	var config: ConfigFile = ConfigFile.new()
-	var load_settings: Error = config.load(Cog.AUDIO_SETTINGS_USER_PATH)
-
-	if load_settings == OK:
-		_apply_config(config)
-
-
-func load_default_settings() -> void:
-	pass
-
-
-func _apply_config(config: ConfigFile) -> void:
-	var sections: PackedStringArray = config.get_sections()
-
-	for section in sections:
-		var bus_index: int = config.get_value(section, _INDEX_KEY)
-		AudioServer.set_bus_mute(bus_index, config.get_value(section, _MUTE_KEY))
-		AudioServer.set_bus_volume_db(bus_index, config.get_value(section, _VOLUME_KEY))
-		AudioServer.set_bus_send(bus_index, config.get_value(section, _SEND_KEY))
-
-
 func save_user_settings() -> void:
 	var config: ConfigFile = ConfigFile.new()
 	
@@ -52,3 +30,30 @@ func save_user_settings() -> void:
 		config.set_value(bus_name, _SEND_KEY, AudioServer.get_bus_send(bus_index))
 	
 	config.save(Cog.AUDIO_SETTINGS_USER_PATH)
+
+
+func load_user_settings() -> void:
+	var config: ConfigFile = ConfigFile.new()
+	var load_settings: Error = config.load(Cog.AUDIO_SETTINGS_USER_PATH)
+
+	if load_settings == OK:
+		_apply_config(config)
+
+
+func load_default_settings() -> void:
+	var default_layout: AudioBusLayout = ResourceLoader.load(Cog.AUDIO_SETTINGS_DEFAULT_PATH)
+	AudioServer.set_bus_layout(default_layout)
+
+	settings_loaded.emit()
+
+
+func _apply_config(config: ConfigFile) -> void:
+	var sections: PackedStringArray = config.get_sections()
+
+	for section in sections:
+		var bus_index: int = config.get_value(section, _INDEX_KEY)
+		AudioServer.set_bus_mute(bus_index, config.get_value(section, _MUTE_KEY))
+		AudioServer.set_bus_volume_db(bus_index, config.get_value(section, _VOLUME_KEY))
+		AudioServer.set_bus_send(bus_index, config.get_value(section, _SEND_KEY))
+	
+	settings_loaded.emit()
