@@ -48,9 +48,9 @@ func get_resolution() -> Vector2i:
 	return _resolution
 
 
-func set_window_mode(new_mode: DisplayServer.WindowMode) -> void:
-	_window_mode = new_mode
-	DisplayServer.window_set_mode(new_mode)
+func set_window_mode(value: DisplayServer.WindowMode) -> void:
+	_window_mode = value
+	DisplayServer.window_set_mode(value)
 	get_window().move_to_center()
 	
 	settings_changed.emit()
