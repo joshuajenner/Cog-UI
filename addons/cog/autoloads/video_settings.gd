@@ -1,5 +1,6 @@
 extends Node
 
+
 signal settings_changed
 signal settings_loaded
 
@@ -39,7 +40,7 @@ func set_resolution(value: Vector2i) -> void:
 	_resolution = value
 	get_window().size = value
 	get_window().move_to_center()
-
+	
 	settings_changed.emit()
 
 
