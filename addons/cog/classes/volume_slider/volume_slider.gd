@@ -31,5 +31,4 @@ func _on_drag_ended(value_changed: bool) -> void:
 
 
 func _on_settings_loaded() -> void:
-	var volume: float = AudioServer.get_bus_volume_db(_bus_index)
-	value = db_to_linear(volume)
+	value = AudioSettings.get_bus_volume(_bus_index)

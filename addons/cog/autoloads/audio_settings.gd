@@ -54,6 +54,10 @@ func set_bus_volume(bus_index: int, value: float) -> void:
 	settings_changed.emit()
 
 
+func get_bus_volume(bus_index: int) -> float:
+	return db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+
+
 func _apply_config(config: ConfigFile) -> void:
 	var sections: PackedStringArray = config.get_sections()
 	
