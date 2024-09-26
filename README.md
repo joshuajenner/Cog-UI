@@ -19,4 +19,4 @@ A framework that makes creating common UI/UX functions for games faster in the G
 
 
 ## License
-Licensed under the MIT license.
+This work is marked with [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
