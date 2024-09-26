@@ -13,6 +13,7 @@ A framework that makes creating common UI/UX functions for games faster in the G
 
 
 ## Documentation
+- [Get Started](https://github.com/joshuajenner/Cog/wiki)
 - [Autoloads](https://github.com/joshuajenner/Cog/wiki/Autoloads)
 - [Classes](https://github.com/joshuajenner/Cog/wiki/Classes)
 
