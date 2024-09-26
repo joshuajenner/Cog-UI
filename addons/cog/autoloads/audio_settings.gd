@@ -1,5 +1,6 @@
 extends Node
 
+signal settings_changed
 signal settings_loaded
 
 const _INDEX_KEY: String = "index"
@@ -16,7 +17,22 @@ func _ready() -> void:
 		_apply_config(config)
 	else:
 		save_user_settings()
-		load_user_settings()
+
+
+func load_default_settings() -> void:
+	var default_layout: AudioBusLayout = ResourceLoader.load(Cog.AUDIO_SETTINGS_DEFAULT_PATH)
+	AudioServer.set_bus_layout(default_layout)
+
+	settings_loaded.emit()
+	settings_changed.emit()
+
+
+func load_user_settings() -> void:
+	var config: ConfigFile = ConfigFile.new()
+	var load_settings: Error = config.load(Cog.AUDIO_SETTINGS_USER_PATH)
+
+	if load_settings == OK:
+		_apply_config(config)
 
 
 func save_user_settings() -> void:
@@ -32,19 +48,9 @@ func save_user_settings() -> void:
 	config.save(Cog.AUDIO_SETTINGS_USER_PATH)
 
 
-func load_user_settings() -> void:
-	var config: ConfigFile = ConfigFile.new()
-	var load_settings: Error = config.load(Cog.AUDIO_SETTINGS_USER_PATH)
-
-	if load_settings == OK:
-		_apply_config(config)
-
-
-func load_default_settings() -> void:
-	var default_layout: AudioBusLayout = ResourceLoader.load(Cog.AUDIO_SETTINGS_DEFAULT_PATH)
-	AudioServer.set_bus_layout(default_layout)
-
-	settings_loaded.emit()
+func set_bus_volume(bus_index: int, value: float) -> void:
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	settings_changed.emit()
 
 
 func _apply_config(config: ConfigFile) -> void:
@@ -57,3 +63,4 @@ func _apply_config(config: ConfigFile) -> void:
 		AudioServer.set_bus_send(bus_index, config.get_value(section, _SEND_KEY))
 	
 	settings_loaded.emit()
+	settings_changed.emit()

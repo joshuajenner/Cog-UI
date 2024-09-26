@@ -27,8 +27,7 @@ func _setup_slider() -> void:
 
 func _on_drag_ended(value_changed: bool) -> void:
 	if value_changed:
-		var new_volume: float = linear_to_db(value)
-		AudioServer.set_bus_volume_db(_bus_index, new_volume)
+		AudioSettings.set_bus_volume(_bus_index, value)
 
 
 func _on_settings_loaded() -> void:
