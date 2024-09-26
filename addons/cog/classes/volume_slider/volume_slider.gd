@@ -12,12 +12,12 @@ var _bus_index: int = -1
 func _ready() -> void:
 	_bus_index = AudioServer.get_bus_index(audio_bus)
 	assert(_bus_index != -1, _WARNING);
-
-	drag_ended.connect(_on_drag_ended)
-	AudioSettings.settings_loaded.connect(_on_settings_loaded)
-
+	
 	_setup_slider()
 	_on_settings_loaded()
+	
+	drag_ended.connect(_on_drag_ended)
+	AudioSettings.settings_loaded.connect(_on_settings_loaded)
 
 
 func _setup_slider() -> void:

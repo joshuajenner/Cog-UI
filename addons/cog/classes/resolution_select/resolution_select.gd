@@ -2,6 +2,7 @@ class_name ResolutionSelect
 extends OptionButton
 
 
+# Edit supported resolutions here
 var _resolutions: Array[Vector2i] = [
 	Vector2i(1920, 1080),
 	Vector2i(1360, 768),
@@ -10,10 +11,11 @@ var _resolutions: Array[Vector2i] = [
 
 
 func _ready():
+	_setup_options()
+	_on_settings_loaded()
+	
 	item_selected.connect(_on_item_selected)
 	VideoSettings.settings_loaded.connect(_on_settings_loaded)
-	
-	_setup_options()
 
 
 func _on_item_selected(index: int) -> void:
@@ -23,8 +25,6 @@ func _on_item_selected(index: int) -> void:
 func _setup_options() -> void:
 	for i: int in _resolutions.size():
 		add_item(_res_string(_resolutions[i]))
-	
-	_on_settings_loaded()
 
 
 func _on_settings_loaded() -> void:
