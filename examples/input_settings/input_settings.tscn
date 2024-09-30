@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://crm66hgtkibqh"]
+
+[ext_resource type="Script" path="res://addons/cog/classes/key_bind_button/key_bind_button.gd" id="1_ml86u"]
+
+[node name="InputSettings" type="MarginContainer"]
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="KeyBindButton" type="Button" parent="."]
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "jump"
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
