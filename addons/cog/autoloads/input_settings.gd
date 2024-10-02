@@ -20,6 +20,9 @@ func _ready() -> void:
 func load_defualt_settings() -> void:
 	InputMap.load_from_project_settings()
 
+	settings_loaded.emit()
+	settings_changed.emit()
+
 
 func load_user_settings() -> void:
 	var config: ConfigFile = ConfigFile.new()
@@ -49,6 +52,8 @@ func assign_event(action: String, event: InputEvent, index: int) -> void:
 			InputMap.action_add_event(action, event)
 		else:
 			InputMap.action_add_event(action, events[i])
+	
+	settings_changed.emit()
 
 
 func unassign_event(action: String, event: InputEvent) -> void:
@@ -64,3 +69,6 @@ func _apply_config(config: ConfigFile) -> void:
 		
 		for event: InputEvent in events:
 			InputMap.action_add_event(action, event)
+	
+	settings_changed.emit()
+	settings_loaded.emit()
