@@ -3,6 +3,7 @@ extends Node
 
 signal settings_changed
 signal settings_loaded
+signal editing_text_changed(text: String)
 
 const _SECTION: String = "keybindings"
 
@@ -45,19 +46,30 @@ func save_user_settings() -> void:
 
 func assign_event(action: String, event: InputEvent, index: int) -> void:
 	var events: Array[InputEvent] = InputMap.action_get_events(action)
-	InputMap.action_erase_events(action)
+	
+	if index >= events.size():
+		InputMap.action_add_event(action, event)
+	else:
+		InputMap.action_erase_events(action)
 
-	for i in events.size():
-		if index == i:
-			InputMap.action_add_event(action, event)
-		else:
-			InputMap.action_add_event(action, events[i])
+		for i in events.size():
+			if index == i:
+				InputMap.action_add_event(action, event)
+			else:
+				InputMap.action_add_event(action, events[i])
 	
 	settings_changed.emit()
 
 
-func unassign_event(action: String, event: InputEvent) -> void:
-	InputMap.action_erase_event(action, event)
+func unassign_event(action: String, index: int) -> void:
+	var events: Array[InputEvent] = InputMap.action_get_events(action)
+
+	for i in events.size():
+		if index == i:
+			InputMap.action_erase_event(action, events[i])
+	
+	print(InputMap.action_get_events(action))
+	settings_changed.emit()
 
 
 func _apply_config(config: ConfigFile) -> void:

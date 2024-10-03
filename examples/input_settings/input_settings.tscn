@@ -31,6 +31,17 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 script = ExtResource("1_ml86u")
 action = "move_up"
+editing_text = "..."
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
+
+[node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Up"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "move_up"
+index = 1
+editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
 
@@ -47,6 +58,17 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 script = ExtResource("1_ml86u")
 action = "move_left"
+editing_text = "..."
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
+
+[node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Left"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "move_left"
+index = 1
+editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
 
@@ -63,6 +85,17 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 script = ExtResource("1_ml86u")
 action = "move_down"
+editing_text = "..."
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
+
+[node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Down"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "move_down"
+index = 1
+editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
 
@@ -79,6 +112,17 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 script = ExtResource("1_ml86u")
 action = "move_right"
+editing_text = "..."
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
+
+[node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Right"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "move_right"
+index = 1
+editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
 
