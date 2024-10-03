@@ -9,6 +9,8 @@ const _WARNING: String = "This Key Bind Button does not have a valid Action."
 @export var editing_text: String
 @export var cancel_action: String
 @export var delete_action: String
+@export var key_label_set: KeyLabelSet
+@export var mouse_label_set: MouseLabelSet
 
 var _is_editing: bool = false
 
@@ -63,11 +65,21 @@ func _is_assignable(event: InputEvent) -> bool:
 
 func _get_event_text() -> String:
 	var events: Array[InputEvent] = InputMap.action_get_events(action)
-
-	if index < events.size():
-		return events[index].as_text()
+	var event: InputEvent = null
+	var event_text: String = ""
 	
-	return ""
+	if index < events.size():
+		event = events[index]
+	
+	if event != null:
+		if event is InputEventKey and key_label_set != null:
+			event_text = key_label_set.get_label(event)
+		elif event is InputEventMouseButton and mouse_label_set != null:
+			event_text = mouse_label_set.get_label(event)
+		else:
+			event_text = event.as_text()
+	
+	return event_text
 
 
 func _on_pressed() -> void:
