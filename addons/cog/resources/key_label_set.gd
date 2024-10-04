@@ -214,12 +214,14 @@ extends Resource
 
 
 func get_label(event: InputEventKey) -> String:
-	var label = _get_custom_label(event.keycode)
+	var physical_keycode: int = DisplayServer.keyboard_get_keycode_from_physical(event.physical_keycode)
+	var keycode: int = max(event.keycode, physical_keycode)
+	var label = _get_custom_label(keycode)
 
 	if label != "":
 		return label
 
-	return event.as_text()
+	return OS.get_keycode_string(keycode)
 
 
 func _get_custom_label(keycode: int) -> String:

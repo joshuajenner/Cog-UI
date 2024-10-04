@@ -68,7 +68,6 @@ func unassign_event(action: String, index: int) -> void:
 		if index == i:
 			InputMap.action_erase_event(action, events[i])
 	
-	print(InputMap.action_get_events(action))
 	settings_changed.emit()
 
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://crm66hgtkibqh"]
+[gd_scene load_steps=5 format=3 uid="uid://crm66hgtkibqh"]
 
 [ext_resource type="Script" path="res://examples/input_settings/input_settings.gd" id="1_a55hf"]
 [ext_resource type="Script" path="res://addons/cog/classes/key_bind_button/key_bind_button.gd" id="1_ml86u"]
+[ext_resource type="Resource" uid="uid://ckwhke0fgq340" path="res://examples/input_settings/example_key_set.tres" id="3_1v6rf"]
+[ext_resource type="Resource" uid="uid://dc2gichr6rxry" path="res://examples/input_settings/example_mouse_set.tres" id="4_y3sb3"]
 
 [node name="InputSettings" type="MarginContainer"]
 anchors_preset = 15
@@ -34,6 +36,8 @@ action = "move_up"
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Up"]
 custom_minimum_size = Vector2(200, 0)
@@ -44,6 +48,8 @@ index = 1
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="Move Left" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -61,6 +67,8 @@ action = "move_left"
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Left"]
 custom_minimum_size = Vector2(200, 0)
@@ -71,6 +79,8 @@ index = 1
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="Move Down" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -88,6 +98,8 @@ action = "move_down"
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Down"]
 custom_minimum_size = Vector2(200, 0)
@@ -98,6 +110,8 @@ index = 1
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="Move Right" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -115,6 +129,8 @@ action = "move_right"
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="KeyBindButton2" type="Button" parent="VBoxContainer/Move Right"]
 custom_minimum_size = Vector2(200, 0)
@@ -125,6 +141,39 @@ index = 1
 editing_text = "..."
 cancel_action = "ui_cancel"
 delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
+
+[node name="Jump" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Jump"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jump"
+
+[node name="KeyBindButton" type="Button" parent="VBoxContainer/Jump"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "jump"
+editing_text = "..."
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
+
+[node name="KeyBindButton2" type="Button" parent="VBoxContainer/Jump"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("1_ml86u")
+action = "jump"
+index = 1
+editing_text = "..."
+cancel_action = "ui_cancel"
+delete_action = "ui_text_backspace"
+key_label_set = ExtResource("3_1v6rf")
+mouse_label_set = ExtResource("4_y3sb3")
 
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
