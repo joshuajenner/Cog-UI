@@ -4,6 +4,8 @@ extends Node
 signal settings_changed
 signal settings_loaded
 signal editing_text_changed(text: String)
+signal key_label_set_changed(set: KeyLabelSet)
+signal mouse_label_set_changed(set: MouseLabelSet)
 
 const _SECTION: String = "keybindings"
 

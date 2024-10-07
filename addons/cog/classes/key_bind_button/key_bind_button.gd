@@ -2,7 +2,9 @@ class_name KeyBindButton
 extends Button
 
 
-const _WARNING: String = "This Key Bind Button does not have a valid Action."
+const _WARNING_ACTION: String = "This Key Bind Button does not have a valid Action."
+const _WARNING_CANCEL: String = "This Key Bind Button does not have a valid Cancel Action."
+const _WARNING_DELETE: String = "This Key Bind Button does not have a valid Delete Action."
 
 @export var action: String
 @export var index: int
@@ -16,12 +18,16 @@ var _is_editing: bool = false
 
 
 func _ready() -> void:
-	assert(InputMap.has_action(action), _WARNING)
+	assert(InputMap.has_action(action), _WARNING_ACTION)
+	assert(InputMap.has_action(cancel_action), _WARNING_CANCEL)
+	assert(InputMap.has_action(delete_action), _WARNING_DELETE)
 	set_ready()
 	
 	pressed.connect(_on_pressed)
 	InputSettings.settings_changed.connect(_on_settings_changed)
 	InputSettings.editing_text_changed.connect(_on_editing_text_changed)
+	InputSettings.key_label_set_changed.connect(set_key_label_set)
+	InputSettings.mouse_label_set_changed.connect(set_mouse_label_set)
 
 
 func set_ready() -> void:
@@ -93,3 +99,13 @@ func _on_settings_changed() -> void:
 
 func _on_editing_text_changed(text: String) -> void:
 	editing_text = text
+
+
+func set_key_label_set(set: KeyLabelSet) -> void:
+	key_label_set = set
+	set_ready()
+
+
+func set_mouse_label_set(set: MouseLabelSet) -> void:
+	mouse_label_set = set
+	set_ready()
