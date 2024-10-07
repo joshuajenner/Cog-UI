@@ -40,6 +40,16 @@ func set_editing() -> void:
 	_is_editing = true
 
 
+func set_key_label_set(set: KeyLabelSet) -> void:
+	key_label_set = set
+	set_ready()
+
+
+func set_mouse_label_set(set: MouseLabelSet) -> void:
+	mouse_label_set = set
+	set_ready()
+
+
 func _input(event: InputEvent) -> void:
 	if _is_editing:
 		if event.is_action_pressed(cancel_action):
@@ -78,14 +88,22 @@ func _get_event_text() -> String:
 		event = events[index]
 	
 	if event != null:
-		if event is InputEventKey and key_label_set != null:
-			event_text = key_label_set.get_label(event)
+		if event is InputEventKey:
+			if key_label_set != null:
+				event_text = key_label_set.get_label(event)
+			else:
+				event_text = OS.get_keycode_string(_get_keycode(event))
 		elif event is InputEventMouseButton and mouse_label_set != null:
 			event_text = mouse_label_set.get_label(event)
 		else:
 			event_text = event.as_text()
 	
 	return event_text
+
+
+func _get_keycode(event: InputEventKey) -> int:
+	var physical_keycode: int = DisplayServer.keyboard_get_keycode_from_physical(event.physical_keycode)
+	return max(event.keycode, physical_keycode)
 
 
 func _on_pressed() -> void:
@@ -99,13 +117,3 @@ func _on_settings_changed() -> void:
 
 func _on_editing_text_changed(text: String) -> void:
 	editing_text = text
-
-
-func set_key_label_set(set: KeyLabelSet) -> void:
-	key_label_set = set
-	set_ready()
-
-
-func set_mouse_label_set(set: MouseLabelSet) -> void:
-	mouse_label_set = set
-	set_ready()
